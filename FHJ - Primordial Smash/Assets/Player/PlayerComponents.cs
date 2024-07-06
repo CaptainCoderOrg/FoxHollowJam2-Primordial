@@ -10,6 +10,10 @@ public class PlayerComponents : MonoBehaviour
     public GameObject Body { get; private set; }
     [field: SerializeField]
     public GameObject Turret { get; private set; }
+    [field: SerializeField]
+    public Transform ProjectileSpawn { get; private set; }
+    [field: SerializeField]
+    public ProjectileController Weapon { get; set; }
 
     void Awake()
     {
