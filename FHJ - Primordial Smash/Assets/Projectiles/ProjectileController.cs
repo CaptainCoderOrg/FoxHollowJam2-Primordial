@@ -17,5 +17,10 @@ public class ProjectileController : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody2D>();
     }
+
+    public void Despawn()
+    {
+        Destroy(gameObject);
+    }
     
 }
