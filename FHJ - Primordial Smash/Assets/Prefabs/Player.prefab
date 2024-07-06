@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8466057712490533647}
   - component: {fileID: 6106019187671739758}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,7 +179,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6404200791856505228}
   - component: {fileID: 7275725958446656289}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MainBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -377,7 +377,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7476523162051668020}
   - component: {fileID: 3638590567246740856}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
