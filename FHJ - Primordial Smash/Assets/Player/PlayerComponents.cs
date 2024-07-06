@@ -13,7 +13,7 @@ public class PlayerComponents : MonoBehaviour
     [field: SerializeField]
     public Transform ProjectileSpawn { get; private set; }
     [field: SerializeField]
-    public ProjectileController Weapon { get; set; }
+    public WeaponData Weapon { get; set; }
 
     void Awake()
     {

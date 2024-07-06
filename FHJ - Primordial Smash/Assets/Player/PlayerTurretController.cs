@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEditor.MPE;
 using UnityEngine;
 
@@ -9,7 +10,8 @@ public class PlayerTurretController : MonoBehaviour
     [SerializeField]
     private PlayerComponents Player;
     public float MagnitudeDeadZone = 0.1f;
-    private Vector2 _lastMovement;
+    [field: SerializeField]
+    public bool CanFire { get; private set; } = true;
 
     void Awake()
     {
@@ -26,12 +28,25 @@ public class PlayerTurretController : MonoBehaviour
         if (DirectionInput.magnitude > MagnitudeDeadZone)
         {
             Player.Turret.transform.rotation = Quaternion.FromToRotation(Vector2.up, DirectionInput.normalized);
-            // Player.ProjectileSpawn
-            ProjectileController projectile = Instantiate(Player.Weapon);
-            projectile.Direction = DirectionInput;
-            projectile.gameObject.transform.position = Player.ProjectileSpawn.position;
-            projectile.gameObject.transform.rotation = Player.Turret.transform.rotation;
+            Fire();
+            
         }
+    }
+
+    private void Fire()
+    {
+        if (!CanFire) { return; }
+        ProjectileController projectile = Instantiate(Player.Weapon.Projectile);
+        projectile.Direction = DirectionInput;
+        projectile.gameObject.transform.SetPositionAndRotation(Player.ProjectileSpawn.position, Player.Turret.transform.rotation);
+        StartCoroutine(CoolDownWeapon(Player.Weapon.CoolDown));
+    }
+
+    private IEnumerator CoolDownWeapon(float duration)
+    {
+        CanFire = false;
+        yield return new WaitForSeconds(duration);
+        CanFire = true;
     }
 
     

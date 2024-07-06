@@ -349,7 +349,8 @@ MonoBehaviour:
   <Rigidbody>k__BackingField: {fileID: 5197548438032381056}
   <Body>k__BackingField: {fileID: 8093934746378219020}
   <Turret>k__BackingField: {fileID: 4490787819198098260}
-  <Weapon>k__BackingField: {fileID: 0}
+  <ProjectileSpawn>k__BackingField: {fileID: 3404391790907853983}
+  <Weapon>k__BackingField: {fileID: 11400000, guid: 05dde2cbcd8c6414492e30ae21045dd7, type: 2}
 --- !u!114 &3472899611765941196
 MonoBehaviour:
   m_ObjectHideFlags: 0
