@@ -9,16 +9,28 @@ public class GruntMovementController : MonoBehaviour
     public Vector2 Direction;
     public float Speed = 1;
     private Rigidbody2D _rigidbody;
-
+    private Animator _animator;
+    private bool _inAttackRange = false;
+    public bool IsAttacking => _animator.GetBool("isAttacking");
     void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
     }
 
     void Update()
     {
         AcquireTarget();
-        Move();
+        CalculateDirection();
+    }
+
+    void FixedUpdate()
+    {
+        _rigidbody.velocity = Vector2.zero;
+        if (!IsAttacking)
+        {
+            _rigidbody.velocity = Direction * Speed;
+        }
     }
 
     public void AcquireTarget()
@@ -27,15 +39,27 @@ public class GruntMovementController : MonoBehaviour
         Target = FindFirstObjectByType<PlayerComponents>();
     }
 
-    public void Move()
+    public void CalculateDirection()
     {
         if (Target == null) { return; }
+        if (IsAttacking) { return; }
         Direction = (Vector2.MoveTowards(transform.position, Target.transform.position, 1) - (Vector2)transform.position).normalized;
         Body.transform.rotation = Quaternion.FromToRotation(Vector2.up, Direction);
     }
 
-    void FixedUpdate()
+    public void StartAttack()
     {
-        _rigidbody.velocity = Direction * Speed;
+        _inAttackRange = true;
+        _animator.SetBool("isAttacking", true);
+    }
+
+    public void StopAttack()
+    {
+        _inAttackRange = false;
+    }
+
+    public void CheckAttackRange()
+    {
+        _animator.SetBool("isAttacking", _inAttackRange);
     }
 }
