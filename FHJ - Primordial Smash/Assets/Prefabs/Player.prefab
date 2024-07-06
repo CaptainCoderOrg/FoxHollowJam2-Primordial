@@ -953,6 +953,7 @@ GameObject:
   - component: {fileID: 4302839558471391388}
   - component: {fileID: 3709795233318166400}
   - component: {fileID: 3472899611765941196}
+  - component: {fileID: 287309225914994497}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1053,6 +1054,27 @@ MonoBehaviour:
   Player: {fileID: 0}
   MagnitudeDeadZone: 0.1
   <CanFire>k__BackingField: 1
+--- !u!95 &287309225914994497
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5941034332969258609}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 479fcf4c6ed4ab447b26b656631bf887, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6128272095248141483
 GameObject:
   m_ObjectHideFlags: 0
@@ -1357,8 +1379,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.012596726, y: -1.352628}
-  m_Size: {x: 2.1013353, y: 5.0949883}
+  m_Offset: {x: -0.012596726, y: -0.2863114}
+  m_Size: {x: 2.1013353, y: 4.9162765}
   m_Direction: 0
 --- !u!1 &8812908872432397100
 GameObject:
