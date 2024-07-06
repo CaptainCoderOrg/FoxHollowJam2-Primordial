@@ -33,6 +33,7 @@ public class PlayerMovementController : MonoBehaviour
     void FixedUpdate()
     {
         Player.Rigidbody.velocity = MovementInput * MovementSpeed;
+        Player.Animator.SetFloat("velocity", Player.Rigidbody.velocity.magnitude);
     }
 
     
