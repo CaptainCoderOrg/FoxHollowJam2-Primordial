@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEditor.MPE;
 using UnityEngine;
@@ -68,7 +69,6 @@ public class PlayerTurretController : MonoBehaviour
         GameObject parent = Instantiate(Player.Weapon.Projectile, Player.ProjectileSpawn.position, Player.Turret.transform.rotation);
         for (int ix = parent.transform.childCount - 1; ix >= 0; ix--)
         {
-            Debug.Log(ix);
             Transform child = parent.transform.GetChild(ix);
             child.SetParent(null);
         }
