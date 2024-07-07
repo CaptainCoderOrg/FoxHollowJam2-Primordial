@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e42090304bdd7be49989eda50e4139aa, type: 3}
+  m_Name: 32 Grunts
+  m_EditorClassIdentifier: 
+  Entries:
+  - {fileID: 11400000, guid: 41a11d54c4e061544a6de6f3c7b244fc, type: 2}
+  - {fileID: 11400000, guid: 816fb74fe3419b0458e11632d462be04, type: 2}
+  - {fileID: 11400000, guid: 2a186fd02dc5f3f4cadebaf1c0fd9805, type: 2}
+  - {fileID: 11400000, guid: 0fd56ec466b89bf4181294daa4a98e6d, type: 2}
