@@ -6,10 +6,11 @@ using UnityEngine;
 public class ArenaController : MonoBehaviour
 {
     public Transform[] SpawnPoints;
-    public EnemySpawnGroup NextSpawn;
+    public EnemyWaveData WaveData;
+    public int NextWaveIx = 0;
     public int LivingEnemies;
 
-    public IEnumerator SpawnCoroutine(EnemySpawnGroup enemySpawnGroup)
+    public IEnumerator SpawnCoroutine(EnemySpawnGroup enemySpawnGroup, float delay)
     {
         foreach (SpawnGroupEntry entry in enemySpawnGroup.Entries)
         {
@@ -26,11 +27,16 @@ public class ArenaController : MonoBehaviour
                 yield return wait;
             }
         }
+        yield return new WaitForSeconds(delay);
+        SpawnNext();
     }
 
     [Button("SpawnNext")]
     public void SpawnNext()
     {
-        StartCoroutine(SpawnCoroutine(NextSpawn));
+        // TODO: Wave complete nothing to spawn
+        if (NextWaveIx >= WaveData.Entries.Count) { return; }
+        StartCoroutine(SpawnCoroutine(WaveData.Entries[NextWaveIx].SpawnGroup, WaveData.Entries[NextWaveIx].Delay));
+        NextWaveIx++;
     }
 }
