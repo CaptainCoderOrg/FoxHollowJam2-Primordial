@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 294ad0f05fc88e44e9907da8c6fa6caf, type: 3}
-  m_Name: PeaShooter
+  m_Name: PeaShooter Data
   m_EditorClassIdentifier: 
-  Projectile: {fileID: 3550407826026059954, guid: 14684968a6dab084ba86dc1b299409fc, type: 3}
+  Projectile: {fileID: 1746966460239034992, guid: 19fd6ff403ba1f64f9f948e213cc662a, type: 3}
   CoolDown: 0.2

@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 294ad0f05fc88e44e9907da8c6fa6caf, type: 3}
+  m_Name: SpreadShot Data
+  m_EditorClassIdentifier: 
+  Projectile: {fileID: 1746966460239034992, guid: 6fa246f9ca36e1149b238d2486ac47cf, type: 3}
+  CoolDown: 0.2

@@ -65,9 +65,15 @@ public class PlayerTurretController : MonoBehaviour
     private void Fire()
     {
         if (!CanFire) { return; }
-        ProjectileController projectile = Instantiate(Player.Weapon.Projectile);
-        projectile.Direction = DirectionInput;
-        projectile.gameObject.transform.SetPositionAndRotation(Player.ProjectileSpawn.position, Player.Turret.transform.rotation);
+        GameObject parent = Instantiate(Player.Weapon.Projectile, Player.ProjectileSpawn.position, Player.Turret.transform.rotation);
+        for (int ix = parent.transform.childCount - 1; ix >= 0; ix--)
+        {
+            Debug.Log(ix);
+            Transform child = parent.transform.GetChild(ix);
+            child.SetParent(null);
+        }
+        Destroy(parent.gameObject);
+
         StartCoroutine(CoolDownWeapon(Player.Weapon.CoolDown));
     }
 

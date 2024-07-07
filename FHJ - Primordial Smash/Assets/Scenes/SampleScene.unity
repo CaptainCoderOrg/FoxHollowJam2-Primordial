@@ -3057,8 +3057,10 @@ MonoBehaviour:
   - {fileID: 395245679}
   - {fileID: 1226965721}
   WaveData: {fileID: 11400000, guid: e33a4f8f5f2a004469cc7570984e798f, type: 2}
-  NextSpawn: {fileID: 11400000, guid: ac149b71524f263489e57c247d0382a2, type: 2}
+  NextWaveIx: 0
   LivingEnemies: 0
+  MinimumEnemies: 10
+  MaximumEnemies: 20
 --- !u!1 &1967120491
 GameObject:
   m_ObjectHideFlags: 0
@@ -3235,6 +3237,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3709795233318166400, guid: dee38dce7ac90394a9f801a9302788f5, type: 3}
+      propertyPath: <Weapon>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: 93408dc3804077046becc84748aa09da, type: 2}
     - target: {fileID: 5941034332969258609, guid: dee38dce7ac90394a9f801a9302788f5, type: 3}
       propertyPath: m_Name
       value: Player
