@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using NaughtyAttributes;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class RadarController : MonoBehaviour
@@ -10,6 +9,8 @@ public class RadarController : MonoBehaviour
     public int Width = 6;
     public int Height = 6;
     public Room[,] Rooms;
+    public MapCellController MapCellPrefab;
+    public Transform CellTarget;
     public EnemyWaveData[] BossWave;
     public EnemyWaveData[] StartWave;
     public Room StartRoom;
@@ -23,6 +24,20 @@ public class RadarController : MonoBehaviour
         StartRoom = InitStartRoom();
         GeneratePathToBossRoom(StartRoom, new HashSet<(int, int)>() { (StartRoom.X, StartRoom.Y) });
         GeneratePathToBossRoom(StartRoom, new HashSet<(int, int)>() { (StartRoom.X, StartRoom.Y) });
+        PopulateUIMap();
+    }
+
+    private void PopulateUIMap()
+    {
+        CellTarget.DestroyChildren();
+        for (int y = 0; y < Width; y++)
+        {
+            for (int x = 0; x < Height; x++)
+            {
+                MapCellController cell = Instantiate(MapCellPrefab, CellTarget);
+                cell.SetRoom(Rooms[x, y]);
+            }
+        }
     }
     private void InitRooms()
     {
@@ -119,6 +134,7 @@ public class RadarController : MonoBehaviour
 
 }
 
+[System.Serializable]
 public class Room
 {
     public Room Up;
