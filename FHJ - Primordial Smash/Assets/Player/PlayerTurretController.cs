@@ -31,7 +31,7 @@ public class PlayerTurretController : MonoBehaviour
     private void HandleMouse()
     {
         Vector2 mousePosition = Input.mousePosition;
-        if (mousePosition != MousePosition)
+        if (mousePosition != MousePosition || Input.GetMouseButton(0))
         {
             MousePosition = mousePosition; 
             Vector2 worldPosition = Camera.main.ScreenToWorldPoint(MousePosition);
