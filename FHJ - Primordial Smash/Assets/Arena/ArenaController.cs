@@ -9,9 +9,12 @@ public class ArenaController : MonoBehaviour
     public EnemyWaveData WaveData;
     public int NextWaveIx = 0;
     public int LivingEnemies;
+    public int MinimumEnemies = 10;
+    public int MaximumEnemies = 128;
 
     public IEnumerator SpawnCoroutine(EnemySpawnGroup enemySpawnGroup, float delay)
     {
+        WaitUntil waitForFewerEnemies = new (() => LivingEnemies < MaximumEnemies);
         foreach (SpawnGroupEntry entry in enemySpawnGroup.Entries)
         {
             WaitForSeconds wait = new (entry.SpawnDelay);
@@ -25,9 +28,14 @@ public class ArenaController : MonoBehaviour
                 position.y += yOff;
                 newEnemy.transform.position = position;
                 yield return wait;
+                yield return waitForFewerEnemies;
             }
         }
-        yield return new WaitForSeconds(delay);
+        while (delay > 0 && LivingEnemies > MinimumEnemies)
+        {
+            delay -= Time.deltaTime;
+            yield return null;
+        }
         SpawnNext();
     }
 
