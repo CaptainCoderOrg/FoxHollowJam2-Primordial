@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class GruntMovementController : MonoBehaviour
 {
+    public SpriteRenderer[] Renderers;
     public GameObject Body;
     public PlayerComponents Target;
     public Vector2 Direction;
@@ -15,17 +16,36 @@ public class GruntMovementController : MonoBehaviour
     private Animator _animator;
     private bool _inAttackRange = false;
     public bool IsMoving => !_animator.GetBool("isAttacking") && !_animator.GetBool("isDead");
+    public string MidAirLayer = "EnemyMidAir";
+    public string EnemyLayer = "Enemy";
     void Awake()
     {
         Speed = Random.Range(MinSpeed, MaxSpeed);
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        Renderers = GetComponentsInChildren<SpriteRenderer>();
     }
 
     void Update()
     {
         AcquireTarget();
         CalculateDirection();
+    }
+
+    public void Airborn()
+    {
+        foreach (var renderer in Renderers)
+        {
+            renderer.sortingLayerName = MidAirLayer;
+        }
+    }
+
+    public void Ground()
+    {
+        foreach(var renderer in Renderers)
+        {
+            renderer.sortingLayerName = EnemyLayer;
+        }
     }
 
     void FixedUpdate()

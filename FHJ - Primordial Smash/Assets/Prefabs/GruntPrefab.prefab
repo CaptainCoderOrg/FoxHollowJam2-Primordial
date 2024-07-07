@@ -813,11 +813,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ca3a2aa6851c70458408f51706189f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Renderers: []
   Body: {fileID: 8763427953229137793}
   Target: {fileID: 0}
   Direction: {x: 0, y: 0}
-  MinSpeed: 3
-  MaxSpeed: 6
+  MinSpeed: 4
+  MaxSpeed: 8
   Speed: 1
 --- !u!50 &1947714431984150987
 Rigidbody2D:
@@ -1101,7 +1102,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8020782367953493378}
   - {fileID: 7723620902325738739}

@@ -51,3 +51,6 @@ TagManager:
   - name: Enemy
     uniqueID: 338472509
     locked: 0
+  - name: EnemyMidAir
+    uniqueID: 649517291
+    locked: 0
