@@ -18,11 +18,36 @@ public class RadarController : MonoBehaviour
     public Room BossRoom;
     public GameObject RadarPanel;
     public Animator Animator;
+    public bool IsHidden;
 
     public void Awake()
     {
         Animator = GetComponent<Animator>();
         GenerateRooms();
+        IsHidden = true;
+    }
+
+    void Update()
+    {
+        if (Input.GetButtonDown("Radar"))
+        {
+            Toggle();
+        }
+    }
+
+    [Button("Toggle")]
+    public void Toggle()
+    {
+        if (IsHidden)
+        {
+            Animator.SetTrigger("Show");
+            IsHidden = false;
+        }
+        else
+        {
+            Animator.SetTrigger("Hide");
+            IsHidden = true;
+        }
     }
 
     [Button("Generate Rooms")]
