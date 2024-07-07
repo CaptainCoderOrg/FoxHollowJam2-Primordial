@@ -1405,6 +1405,56 @@ Transform:
   m_Children: []
   m_Father: {fileID: 208145608}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -225.6}
+--- !u!1 &1007506123
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1007506125}
+  - component: {fileID: 1007506124}
+  m_Layer: 0
+  m_Name: RadarController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1007506124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1007506123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8b53ea00cfb0f443a42b7c8c6e77115, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Width: 6
+  Height: 6
+  BossWave:
+  - {fileID: 11400000, guid: e33a4f8f5f2a004469cc7570984e798f, type: 2}
+  StartWave:
+  - {fileID: 11400000, guid: e33a4f8f5f2a004469cc7570984e798f, type: 2}
+--- !u!4 &1007506125
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1007506123}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1061242167
 GameObject:
   m_ObjectHideFlags: 0
@@ -3059,7 +3109,7 @@ MonoBehaviour:
   WaveData: {fileID: 11400000, guid: e33a4f8f5f2a004469cc7570984e798f, type: 2}
   NextWaveIx: 0
   LivingEnemies: 0
-  MinimumEnemies: 10
+  MinimumEnemies: 20
   MaximumEnemies: 20
 --- !u!1 &1967120491
 GameObject:
@@ -3240,7 +3290,7 @@ PrefabInstance:
     - target: {fileID: 3709795233318166400, guid: dee38dce7ac90394a9f801a9302788f5, type: 3}
       propertyPath: <Weapon>k__BackingField
       value: 
-      objectReference: {fileID: 11400000, guid: 93408dc3804077046becc84748aa09da, type: 2}
+      objectReference: {fileID: 11400000, guid: 05dde2cbcd8c6414492e30ae21045dd7, type: 2}
     - target: {fileID: 5941034332969258609, guid: dee38dce7ac90394a9f801a9302788f5, type: 3}
       propertyPath: m_Name
       value: Player
@@ -3301,3 +3351,4 @@ SceneRoots:
   - {fileID: 1321335334}
   - {fileID: 208145608}
   - {fileID: 1937934525}
+  - {fileID: 1007506125}
