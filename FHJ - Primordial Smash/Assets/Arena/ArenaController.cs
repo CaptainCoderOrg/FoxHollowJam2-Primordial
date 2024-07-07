@@ -7,6 +7,7 @@ public class ArenaController : MonoBehaviour
 {
     public Transform[] SpawnPoints;
     public EnemySpawnGroup NextSpawn;
+    public int LivingEnemies;
 
     public IEnumerator SpawnCoroutine(EnemySpawnGroup enemySpawnGroup)
     {

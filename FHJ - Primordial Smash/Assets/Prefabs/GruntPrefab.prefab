@@ -71,7 +71,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 338472509
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 38bc5e6f0df980d45b009adc16f929a2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -391,7 +391,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 338472509
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 7ba1b525291750340b54e21e9797f233, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -555,7 +555,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 338472509
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 1000
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -673,7 +673,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 338472509
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 38bc5e6f0df980d45b009adc16f929a2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -777,6 +777,7 @@ GameObject:
   - component: {fileID: 4481273550639373735}
   - component: {fileID: 7964926406010759547}
   - component: {fileID: 2042978370896456045}
+  - component: {fileID: 6908954556770365422}
   m_Layer: 0
   m_Name: GruntPrefab
   m_TagString: Untagged
@@ -820,6 +821,8 @@ MonoBehaviour:
   MinSpeed: 4
   MaxSpeed: 8
   Speed: 1
+  MidAirLayer: EnemyMidAir
+  EnemyLayer: Enemy
 --- !u!50 &1947714431984150987
 Rigidbody2D:
   serializedVersion: 4
@@ -905,6 +908,19 @@ MonoBehaviour:
     _json: '{"nest":{"source":"Macro","macro":0,"embed":null}}'
     _objectReferences:
     - {fileID: 11400000, guid: 055b5da4f0559484fac1a648a49148fd, type: 2}
+--- !u!114 &6908954556770365422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7606106095755839384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79248c3e03b15104c80e8e69f5c6a9e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _arenaController: {fileID: 0}
 --- !u!1 &8299722378097260829
 GameObject:
   m_ObjectHideFlags: 0
@@ -977,7 +993,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 338472509
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 97e8786d72d8a7b4aa0d65e421afeaa0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1185,7 +1201,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 338472509
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 9d844f6ba9e06804494a9f059702a145, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

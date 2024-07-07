@@ -99,9 +99,4 @@ public class GruntMovementController : MonoBehaviour
 
         _animator.SetBool("isDead", true);
     }
-
-    public void Despawn()
-    {
-        Destroy(gameObject);
-    }
 }
