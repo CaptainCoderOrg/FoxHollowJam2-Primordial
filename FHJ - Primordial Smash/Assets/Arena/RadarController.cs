@@ -62,18 +62,19 @@ public class RadarController : MonoBehaviour
         
         if (xChange != 0 || yChange != 0) 
         {
-            MoveCursor(xChange, yChange);
+            Select(xChange + CurrentX, yChange + CurrentY);
         }
     }
-    
 
-    private void MoveCursor(int xOff, int yOff)
+    public void Select(int x, int y)
     {
+        x = Mathf.Clamp(x, 0, Width - 1);
+        y = Mathf.Clamp(y, 0, Height - 1);
         Selected.UnSelect();
-        CurrentX = Mathf.Clamp(CurrentX + xOff, 0, Width - 1);
-        CurrentY = Mathf.Clamp(CurrentY + yOff, 0, Height - 1);
+        (CurrentX, CurrentY) = (x, y);
         Selected.Select();
     }
+    
 
     [Button("Toggle")]
     public void Toggle()

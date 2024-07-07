@@ -12,7 +12,19 @@ public class MapCellController : MonoBehaviour
     public Image DownExit;
     public Image TileImage;
     public Image Selected;
-    
+    public RadarController Parent;
+
+    void Awake()
+    {
+        Parent = GetComponentInParent<RadarController>();
+        Debug.Assert(Parent != null);
+    }
+
+    public void OnClick()
+    {
+        Parent.Select(RoomData.X, RoomData.Y);
+    }
+
     public void Select()
     {
         Selected.enabled = true;
