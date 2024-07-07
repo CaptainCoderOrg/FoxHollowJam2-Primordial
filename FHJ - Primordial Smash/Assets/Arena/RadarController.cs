@@ -19,6 +19,15 @@ public class RadarController : MonoBehaviour
     public GameObject RadarPanel;
     public Animator Animator;
     public bool IsHidden;
+    private bool _up = false;
+    private bool _down = false;
+    private bool _left = false;
+    private bool _right = false;
+
+    public int CurrentX = 0;
+    public int CurrentY = 0;
+
+    MapCellController Selected => CellTarget.GetChild(CurrentX + CurrentY * Width).GetComponent<MapCellController>();
 
     public void Awake()
     {
@@ -33,6 +42,37 @@ public class RadarController : MonoBehaviour
         {
             Toggle();
         }
+        HandleDPad();
+    }
+
+    void HandleDPad()
+    {
+        if (IsHidden) { return; }
+        int xChange = 0;
+        int yChange = 0;
+        float dpad_h = Input.GetAxis("DPad_h");
+        float dpad_v = Input.GetAxis("DPad_v");
+        if (dpad_h == 0) { _left = _right = false; }
+        else if (dpad_h == 1 && !_right ) { xChange = 1; _right = true; }
+        else if (dpad_h == -1 && !_left ) { xChange = -1; _left = true; }
+        if (dpad_v == 0) { _up = _down = false; }
+        else if (dpad_v == 1 && !_down) { yChange = -1; _down = true; }
+        else if (dpad_v == -1 && !_up) { yChange = 1; _up = true; }
+
+        
+        if (xChange != 0 || yChange != 0) 
+        {
+            MoveCursor(xChange, yChange);
+        }
+    }
+    
+
+    private void MoveCursor(int xOff, int yOff)
+    {
+        Selected.UnSelect();
+        CurrentX = Mathf.Clamp(CurrentX + xOff, 0, Width - 1);
+        CurrentY = Mathf.Clamp(CurrentY + yOff, 0, Height - 1);
+        Selected.Select();
     }
 
     [Button("Toggle")]
@@ -41,6 +81,7 @@ public class RadarController : MonoBehaviour
         if (IsHidden)
         {
             Animator.SetTrigger("Show");
+            Selected.Select();
             IsHidden = false;
         }
         else

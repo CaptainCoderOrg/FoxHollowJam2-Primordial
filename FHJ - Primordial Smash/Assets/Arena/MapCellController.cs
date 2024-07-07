@@ -11,6 +11,17 @@ public class MapCellController : MonoBehaviour
     public Image UpExit;
     public Image DownExit;
     public Image TileImage;
+    public Image Selected;
+    
+    public void Select()
+    {
+        Selected.enabled = true;
+    }
+
+    public void UnSelect()
+    {
+        Selected.enabled = false;
+    }
 
     public void SetRoom(Room roomData)
     {
