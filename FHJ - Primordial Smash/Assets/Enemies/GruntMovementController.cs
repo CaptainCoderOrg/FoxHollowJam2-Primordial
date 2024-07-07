@@ -30,6 +30,12 @@ public class GruntMovementController : MonoBehaviour
 
     void FixedUpdate()
     {
+        _rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+        if (!IsMoving)
+        {
+            _rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
+        }
+        
         _rigidbody.velocity = Vector2.zero;
         if (IsMoving)
         {
