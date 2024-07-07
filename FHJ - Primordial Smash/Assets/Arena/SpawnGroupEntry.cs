@@ -7,4 +7,5 @@ public class SpawnGroupEntry : ScriptableObject
 {
     public SpawnPoint SpawnPoint;
     public List<EnemyData> Enemies;
+    public float SpawnDelay = 0.01f;
 }

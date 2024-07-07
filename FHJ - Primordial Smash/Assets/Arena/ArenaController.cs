@@ -8,10 +8,11 @@ public class ArenaController : MonoBehaviour
     public Transform[] SpawnPoints;
     public EnemySpawnGroup NextSpawn;
 
-    public void Spawn(EnemySpawnGroup enemySpawnGroup)
+    public IEnumerator SpawnCoroutine(EnemySpawnGroup enemySpawnGroup)
     {
         foreach (SpawnGroupEntry entry in enemySpawnGroup.Entries)
         {
+            WaitForSeconds wait = new (entry.SpawnDelay);
             foreach (EnemyData enemy in entry.Enemies)
             {
                 GameObject newEnemy = Instantiate(enemy.Prefab);
@@ -21,6 +22,7 @@ public class ArenaController : MonoBehaviour
                 position.x += xOff;
                 position.y += yOff;
                 newEnemy.transform.position = position;
+                yield return wait;
             }
         }
     }
@@ -28,6 +30,6 @@ public class ArenaController : MonoBehaviour
     [Button("SpawnNext")]
     public void SpawnNext()
     {
-        Spawn(NextSpawn);
+        StartCoroutine(SpawnCoroutine(NextSpawn));
     }
 }
