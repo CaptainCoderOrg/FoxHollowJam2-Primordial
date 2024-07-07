@@ -13,8 +13,17 @@ public class RadarController : MonoBehaviour
     public Transform CellTarget;
     public EnemyWaveData[] BossWave;
     public EnemyWaveData[] StartWave;
+    public EnemyWaveData[] MiddleWaves;
     public Room StartRoom;
     public Room BossRoom;
+    public GameObject RadarPanel;
+    public Animator Animator;
+
+    public void Awake()
+    {
+        Animator = GetComponent<Animator>();
+        GenerateRooms();
+    }
 
     [Button("Generate Rooms")]
     public void GenerateRooms()
@@ -46,7 +55,12 @@ public class RadarController : MonoBehaviour
         {
             for (int col = 0; col < Height; col++)
             {
-                Rooms[col, row] = new Room() { Y = row, X = col };
+                Rooms[col, row] = new Room
+                {
+                    Y = row,
+                    X = col,
+                    Wave = MiddleWaves[Random.Range(0, MiddleWaves.Length)]
+                };
             }
         }
     }
