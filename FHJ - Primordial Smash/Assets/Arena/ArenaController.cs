@@ -14,6 +14,8 @@ public class ArenaController : MonoBehaviour
     public RadarController Radar;
     public HUDController HUD;
     public ArrowsController Arrows;
+    public bool TestArea;
+    public EnemyWaveData TestWave;
     
 
     void Awake()
@@ -37,7 +39,13 @@ public class ArenaController : MonoBehaviour
         if (Radar.CurrentRoom.HasStarted) { return; }
         HUD.HideAreaReady();
         Radar.CurrentRoom.HasStarted = true;
-        WaveData = Radar.CurrentRoom.Wave;
+        if (!TestArea)
+        {
+            WaveData = Radar.CurrentRoom.Wave;
+        }
+        {
+            WaveData = TestWave;
+        }
         SpawnNext();
     }
 
