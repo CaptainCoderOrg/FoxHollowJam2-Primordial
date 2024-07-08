@@ -21,7 +21,7 @@ public class InfoPanelController : MonoBehaviour
 
     private string GenerateRewardsScan(Room room)
     {
-        if (room.Rewards.Count == 0) { return "No materials detected"; }
+        if (room.Rewards.Count == 0 || !room.IsAccessible) { return "None Detected"; }
         HashSet<string> rewards = new();
         foreach (var reward in room.Rewards)
         {
@@ -32,6 +32,7 @@ public class InfoPanelController : MonoBehaviour
 
     private string GenerateBioScan(Room room)
     {
+        if (!room.IsAccessible) { return "None Detected"; }
         HashSet<string> EnemyNames = new();
         foreach (var entry in room.Wave.Entries)
         {

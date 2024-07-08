@@ -2759,7 +2759,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3f169a00b79b35b44be55c269f043993, type: 2}
   MiddleWaves:
   - {fileID: 11400000, guid: e33a4f8f5f2a004469cc7570984e798f, type: 2}
-  - {fileID: 11400000, guid: 3f169a00b79b35b44be55c269f043993, type: 2}
+  - {fileID: 11400000, guid: 38a6cf8ee51ec8f4184c6f9a1d198587, type: 2}
+  - {fileID: 11400000, guid: 87ca7c6d2bfacfa4dbb0bb98eae803c5, type: 2}
+  - {fileID: 11400000, guid: 1aa2fde474ab672428d2ce207daf8245, type: 2}
+  - {fileID: 11400000, guid: 51733686c38726e4da371264111cd303, type: 2}
   StartRoom:
     Wave: {fileID: 11400000, guid: e33a4f8f5f2a004469cc7570984e798f, type: 2}
     Rewards: []
@@ -2767,6 +2770,7 @@ MonoBehaviour:
     X: 0
     IsBossRoom: 0
     IsStartRoom: 1
+    IsAccessible: 0
   BossRoom:
     Wave: {fileID: 11400000, guid: e33a4f8f5f2a004469cc7570984e798f, type: 2}
     Rewards: []
@@ -2774,6 +2778,7 @@ MonoBehaviour:
     X: 5
     IsBossRoom: 1
     IsStartRoom: 0
+    IsAccessible: 0
   RadarPanel: {fileID: 609101651}
   Animator: {fileID: 0}
   IsHidden: 0

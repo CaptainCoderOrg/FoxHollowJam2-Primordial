@@ -161,12 +161,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BossRoomColor: {r: 1, g: 0.2709554, b: 0.20943397, a: 1}
   StartRoomColor: {r: 1, g: 0.8233118, b: 0, a: 1}
+  InaccessibleColor: {r: 0, g: 0.244, b: 0, a: 1}
+  AccessibleColor: {r: 0.14117648, g: 0.5686275, b: 0, a: 1}
   RoomData:
     Wave: {fileID: 0}
+    Rewards: []
     Y: 0
     X: 0
     IsBossRoom: 0
     IsStartRoom: 0
+    IsAccessible: 0
   RightExit: {fileID: 6443325782019728711}
   LeftExit: {fileID: 6438276312882965289}
   UpExit: {fileID: 118200436192724306}

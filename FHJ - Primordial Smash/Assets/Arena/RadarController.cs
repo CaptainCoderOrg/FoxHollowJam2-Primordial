@@ -183,8 +183,10 @@ public class RadarController : MonoBehaviour
         seenRooms.Add((x, y));
         Room nextRoom = Rooms[x, y];
         ConnectRooms(currentRoom, nextRoom, 0);
+        currentRoom.IsAccessible = true;
         if (nextRoom == BossRoom) 
         { 
+            BossRoom.IsAccessible = true;
             return; 
         }
         GeneratePathToBossRoom(nextRoom, seenRooms);
@@ -200,11 +202,11 @@ public class RadarController : MonoBehaviour
         {
             chance = Random.Range(0.0f, 1.0f);
             int rewards = 1;
-            if (chance > 0.50f)
+            if (chance > 0.3f)
             {
                 rewards = 2;
             }
-            else if (chance > 0.90f)
+            else if (chance > 0.50f)
             {
                 rewards = 3;
             }
@@ -271,6 +273,7 @@ public class Room
     public int X;
     public bool IsBossRoom;
     public bool IsStartRoom;
+    public bool IsAccessible = false;
 
     public override string ToString()
     {
