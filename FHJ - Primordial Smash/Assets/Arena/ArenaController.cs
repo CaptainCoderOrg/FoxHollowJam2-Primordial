@@ -43,7 +43,12 @@ public class ArenaController : MonoBehaviour
 
     public void EnterArea()
     {
-        if (Radar.CurrentRoom.IsComplete) { return; }
+        if (Radar.CurrentRoom.IsComplete)
+        { 
+            Arrows.ShowExits(Radar.CurrentRoom);
+            return; 
+        }
+        NextWaveIx = 0;
         HUD.ShowAreaReady();
     }
 
@@ -52,10 +57,8 @@ public class ArenaController : MonoBehaviour
         if (Radar.CurrentRoom.HasStarted) { return; }
         HUD.HideAreaReady();
         Radar.CurrentRoom.HasStarted = true;
-        if (!TestArea)
-        {
-            WaveData = Radar.CurrentRoom.Wave;
-        }
+        WaveData = Radar.CurrentRoom.Wave;
+        if (TestArea)
         {
             WaveData = TestWave;
         }
