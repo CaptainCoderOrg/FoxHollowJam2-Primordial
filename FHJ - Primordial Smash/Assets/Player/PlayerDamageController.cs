@@ -15,9 +15,11 @@ public class PlayerDamageController : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
+        if (Player.IsInvulnerable || Player.Health <= 0){ return; }
         if(other.TryGetComponent<EnemyWeaponController>(out var enemyWeapon))
         {
             OnDamaged?.Invoke(enemyWeapon.TotalDamage);
+            Player.TakeDamage();
             if (AudioSource.isPlaying) { return; }
             if(enemyWeapon.DamageSounds.Length > 0)
             {

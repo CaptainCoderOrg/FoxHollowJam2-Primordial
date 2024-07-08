@@ -24,12 +24,15 @@ public class PlayerComponents : MonoBehaviour
     public int BaseHealth = 3;
     public int MaxHealth => BaseHealth + HealthBonus();
     public int Health => MaxHealth - Damage;
+    public float InvlunerableTime = 0.25f;
+    public bool IsInvulnerable = false;
     [SerializeField]
     private int _maxHealth = 3;
     [SerializeField]
     private int _health = 1;
     [SerializeField]
     private int _damage = 0;
+    public bool IsDead => Health <= 0;
     public UnityEvent<int> HealthChanged; 
     public int Damage
     {
@@ -39,6 +42,10 @@ public class PlayerComponents : MonoBehaviour
             int newDamage = Mathf.Clamp(value, 0, MaxHealth);
             _damage = newDamage;
             HealthChanged?.Invoke(Health);
+            if (Health <= 0)
+            {
+                Animator.SetTrigger("Death");
+            }
         }
     }
 
@@ -50,7 +57,16 @@ public class PlayerComponents : MonoBehaviour
 
     public void TakeDamage()
     {
+        if (IsInvulnerable) { return; }
         Damage++;
+        StartCoroutine(Invulnerability());
+    }
+
+    private IEnumerator Invulnerability()
+    {
+        IsInvulnerable = true;
+        yield return new WaitForSeconds(InvlunerableTime);
+        IsInvulnerable = false;
     }
 
 

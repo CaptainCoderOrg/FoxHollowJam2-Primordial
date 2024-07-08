@@ -20,6 +20,7 @@ public class ArenaController : MonoBehaviour
     public EnemyWaveData TestWave;
     public PlayerComponents Player;
     public Animator FadeAnimator;
+    public Animator YouDiedAnimator;
     public RewardsUIController RewardsUI;
 
     void Awake()
@@ -34,6 +35,30 @@ public class ArenaController : MonoBehaviour
         Debug.Assert(Arrows != null);
         RewardsUI = FindFirstObjectByType<RewardsUIController>();
         Debug.Assert(RewardsUI != null);
+        Player.HealthChanged.AddListener(DeathCheck);
+    }
+
+    public void DeathCheck(int health)
+    {
+        if (health <= 0)
+        {
+            StartCoroutine(AnimateGameOver());
+        }
+    }
+
+    [Button("Test GameOver")]
+    public void TestGameOver()
+    {
+        StartCoroutine(AnimateGameOver());
+    }
+
+    private IEnumerator AnimateGameOver()
+    {
+        FadeAnimator.SetTrigger("FadeOut");
+        yield return new WaitForSeconds(.5f);
+        YouDiedAnimator.SetTrigger("Show");
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene("Title");
     }
 
     public void Transition()
@@ -43,6 +68,7 @@ public class ArenaController : MonoBehaviour
 
     public IEnumerator AnimateTransition()
     {
+        if (Player.Health <= 0) { yield break; }
         if(Radar.NextRoom == null) { yield break; }
         FadeAnimator.SetTrigger("FadeOut");
         Radar.CurrentX = Radar.NextRoom.X;

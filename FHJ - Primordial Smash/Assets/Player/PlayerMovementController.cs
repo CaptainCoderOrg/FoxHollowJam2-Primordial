@@ -22,6 +22,7 @@ public class PlayerMovementController : MonoBehaviour
     void Update()
     {
         Vector2 input = default;
+        if (Player.IsDead) { return; }
         input.x = Input.GetAxis("Horizontal");
         input.y = Input.GetAxis("Vertical");
         MovementInput = input;

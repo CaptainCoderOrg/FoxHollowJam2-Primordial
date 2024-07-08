@@ -22,6 +22,7 @@ public class PlayerTurretController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Player.IsDead) { return; }
         HandleAnalog();
         HandleMouse();
     }
