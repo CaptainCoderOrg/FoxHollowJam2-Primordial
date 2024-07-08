@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: SpreadShot Data
   m_EditorClassIdentifier: 
   Projectile: {fileID: 1746966460239034992, guid: 6fa246f9ca36e1149b238d2486ac47cf, type: 3}
-  CoolDown: 0.2
+  CoolDown: 0.7

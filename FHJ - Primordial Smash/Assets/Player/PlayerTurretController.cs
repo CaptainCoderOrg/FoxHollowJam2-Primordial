@@ -74,7 +74,7 @@ public class PlayerTurretController : MonoBehaviour
         }
         Destroy(parent.gameObject);
 
-        StartCoroutine(CoolDownWeapon(Player.Weapon.CoolDown));
+        StartCoroutine(CoolDownWeapon(Player.Weapon.CoolDown * Player.CoolDownMultiplier()));
     }
 
     private IEnumerator CoolDownWeapon(float duration)

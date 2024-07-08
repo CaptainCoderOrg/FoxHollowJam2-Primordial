@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: PeaShooter Data
   m_EditorClassIdentifier: 
   Projectile: {fileID: 1746966460239034992, guid: 19fd6ff403ba1f64f9f948e213cc662a, type: 3}
-  CoolDown: 0.2
+  CoolDown: 0.5
