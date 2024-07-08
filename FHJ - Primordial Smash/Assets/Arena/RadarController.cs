@@ -35,6 +35,30 @@ public class RadarController : MonoBehaviour
     public MapCellController Selected => CellTarget.GetChild(CursorX + CursorY * Width).GetComponent<MapCellController>();
     public MapCellController Current => CellTarget.GetChild(CurrentX + CurrentY * Width).GetComponent<MapCellController>();
     public Room CurrentRoom => Current.RoomData;
+    public Room NextRoom;
+    public SpawnPoint ExitDirection;
+
+    public void SetNextRoomRight() => SetNextRoom(SpawnPoint.East);
+    public void SetNextRoomUp() => SetNextRoom(SpawnPoint.North);
+    public void SetNextRoomLeft() => SetNextRoom(SpawnPoint.West);
+    public void SetNextRoomDown() => SetNextRoom(SpawnPoint.South);
+    public void SetNextRoom(SpawnPoint direction)
+    {
+        ExitDirection = direction;
+        NextRoom = direction switch
+        {
+            SpawnPoint.North => CurrentRoom.Up,
+            SpawnPoint.East => CurrentRoom.Right,
+            SpawnPoint.South => CurrentRoom.Down,
+            SpawnPoint.West => CurrentRoom.Left,
+            _ => throw new System.NotImplementedException($"Unknown directionL {direction}"),
+        };
+    }
+
+    public void ClearNextRoom()
+    {
+        NextRoom = null;
+    }
 
     public void Awake()
     {

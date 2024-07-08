@@ -16,7 +16,6 @@ public class ArenaController : MonoBehaviour
     public ArrowsController Arrows;
     public bool TestArea;
     public EnemyWaveData TestWave;
-    
 
     void Awake()
     {
