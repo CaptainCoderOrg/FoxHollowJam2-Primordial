@@ -86,10 +86,16 @@ public class ArenaController : MonoBehaviour
 
     }
 
+    public IEnumerator AnimateRewards()
+    {
+        yield break;
+    }
+
     public void FinishArea()
     {
         if (Radar.CurrentRoom.IsComplete) { return; }
-        Radar.CurrentRoom.IsComplete = true;        
+        Radar.CurrentRoom.IsComplete = true;
+        StartCoroutine(AnimateRewards());        
         if (Radar.CurrentRoom == Radar.BossRoom)
         {
             Win();
