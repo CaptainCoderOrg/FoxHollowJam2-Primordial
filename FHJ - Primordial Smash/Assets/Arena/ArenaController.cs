@@ -11,6 +11,21 @@ public class ArenaController : MonoBehaviour
     public int LivingEnemies;
     public int MinimumEnemies = 10;
     public int MaximumEnemies = 128;
+    public RadarController Radar;
+
+    void Awake()
+    {
+        Radar = FindFirstObjectByType<RadarController>();
+        Debug.Assert(Radar != null);
+    }
+
+    public void StartArea()
+    {
+        if (Radar.CurrentRoom.HasStarted) { return; }
+        Radar.CurrentRoom.HasStarted = true;
+        WaveData = Radar.CurrentRoom.Wave;
+        SpawnNext();
+    }
 
     public IEnumerator SpawnCoroutine(EnemySpawnGroup enemySpawnGroup, float delay)
     {
