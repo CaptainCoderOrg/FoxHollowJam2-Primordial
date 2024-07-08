@@ -14,4 +14,11 @@ public static class Collider2DExtensions
         return tag == "Player Projectile";
     }
 
+    public static bool IsPlayerProjectile(this Collider2D collider2D, out ProjectileStatsController damageInfo)
+    {
+        damageInfo = collider2D?.attachedRigidbody?.GetComponent<ProjectileStatsController>();
+        string tag = collider2D?.attachedRigidbody?.tag;
+        return tag == "Player Projectile";
+    }
+
 }
