@@ -99,7 +99,7 @@ public class ArenaController : MonoBehaviour
     private IEnumerator WaitForFinish()
     {
         yield return new WaitUntil(() => LivingEnemies == 0);
-        yield return new WaitForSeconds(2);
+        // yield return new WaitForSeconds(2);
         FinishArea();
         HUD.ShowAreaCleared();
         yield return new WaitForSeconds(2);
