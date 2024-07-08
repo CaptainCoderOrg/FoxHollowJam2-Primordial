@@ -12,11 +12,14 @@ public class ArenaController : MonoBehaviour
     public int MinimumEnemies = 10;
     public int MaximumEnemies = 128;
     public RadarController Radar;
+    public HUDController HUD;
 
     void Awake()
     {
         Radar = FindFirstObjectByType<RadarController>();
         Debug.Assert(Radar != null);
+        HUD = FindFirstObjectByType<HUDController>();
+        Debug.Assert(HUD != null);
     }
 
     public void StartArea()
@@ -25,6 +28,14 @@ public class ArenaController : MonoBehaviour
         Radar.CurrentRoom.HasStarted = true;
         WaveData = Radar.CurrentRoom.Wave;
         SpawnNext();
+    }
+
+    public void FinishArea()
+    {
+        if (Radar.CurrentRoom.IsComplete) { return; }
+        Radar.CurrentRoom.IsComplete = true;
+        HUD.ShowAreaCleared();
+        
     }
 
     public IEnumerator SpawnCoroutine(EnemySpawnGroup enemySpawnGroup, float delay)
@@ -54,12 +65,24 @@ public class ArenaController : MonoBehaviour
         SpawnNext();
     }
 
+
     [Button("SpawnNext")]
     public void SpawnNext()
     {
         // TODO: Wave complete nothing to spawn
-        if (NextWaveIx >= WaveData.Entries.Count) { return; }
+        if (NextWaveIx >= WaveData.Entries.Count) 
+        { 
+            StartCoroutine(WaitForFinish());
+            return; 
+        }
         StartCoroutine(SpawnCoroutine(WaveData.Entries[NextWaveIx].SpawnGroup, WaveData.Entries[NextWaveIx].Delay));
         NextWaveIx++;
+    }
+
+    private IEnumerator WaitForFinish()
+    {
+        yield return new WaitUntil(() => LivingEnemies == 0);
+        yield return new WaitForSeconds(2);
+        FinishArea();
     }
 }
