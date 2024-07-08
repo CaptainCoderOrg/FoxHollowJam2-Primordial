@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,18 @@ public class InfoPanelController : MonoBehaviour
     {
         Position.text = $"Position: ({room.X}, {room.Y})";
         BioScan.text = GenerateBioScan(room);
-        Materials.text = "* ???";
+        Materials.text = GenerateRewardsScan(room);
+    }
+
+    private string GenerateRewardsScan(Room room)
+    {
+        if (room.Rewards.Count == 0) { return "No materials detected"; }
+        HashSet<string> rewards = new();
+        foreach (var reward in room.Rewards)
+        {
+            rewards.Add(reward.Name);
+        }
+        return $" * {string.Join("\n * ", rewards)}".TrimEnd();
     }
 
     private string GenerateBioScan(Room room)

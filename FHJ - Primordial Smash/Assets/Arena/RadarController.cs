@@ -28,6 +28,7 @@ public class RadarController : MonoBehaviour
     public int CurrentX = 0;
     public int CurrentY = 0;
     public InfoPanelController InfoPanel;
+    public MaterialsData[] Rewards;
 
     MapCellController Selected => CellTarget.GetChild(CurrentX + CurrentY * Width).GetComponent<MapCellController>();
 
@@ -177,7 +178,7 @@ public class RadarController : MonoBehaviour
             GeneratePathToBossRoom(StartRoom,  new HashSet<(int, int)>() { (StartRoom.X, StartRoom.Y) }); 
             return;
         }
-
+        AddReward(currentRoom);
         (int x, int y) = possibleExits[Random.Range(0, possibleExits.Length)];
         seenRooms.Add((x, y));
         Room nextRoom = Rooms[x, y];
@@ -187,6 +188,33 @@ public class RadarController : MonoBehaviour
             return; 
         }
         GeneratePathToBossRoom(nextRoom, seenRooms);
+    }
+
+    private void AddReward(Room room)
+    {
+        if (room == StartRoom) { return; }
+        if (room == BossRoom) { return; }
+        if (room.Rewards.Count > 0) { return; }
+        float chance = Random.Range(0.0f, 1.0f);
+        if (chance < 0.50f) // Give reward
+        {
+            chance = Random.Range(0.0f, 1.0f);
+            int rewards = 1;
+            if (chance > 0.50f)
+            {
+                rewards = 2;
+            }
+            else if (chance > 0.90f)
+            {
+                rewards = 3;
+            }
+            while (rewards > 0)
+            {
+                room.Rewards.Add(Rewards[Random.Range(0, Rewards.Length)]);
+                rewards--;
+            }
+        }
+
     }
 
     private void ConnectRooms(Room First, Room Second, int depth)
@@ -238,6 +266,7 @@ public class Room
     public Room Down;
     public Room Left;
     public EnemyWaveData Wave;
+    public List<MaterialsData> Rewards = new ();
     public int Y;
     public int X;
     public bool IsBossRoom;
