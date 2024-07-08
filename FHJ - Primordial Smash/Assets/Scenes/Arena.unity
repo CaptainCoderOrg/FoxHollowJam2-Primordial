@@ -2310,7 +2310,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &322838468
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3588,6 +3588,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1897866dcdd03694f902cb63584cfc53, type: 2}
   - {fileID: 11400000, guid: a1a33c3c9fa5a6140a01b6daf97d90a5, type: 2}
   - {fileID: 11400000, guid: 4a0304e2f95a7d242ab592832e01440e, type: 2}
+  Cells: []
   NextRoom:
     Wave: {fileID: 0}
     Rewards: []
@@ -10495,6 +10496,7 @@ MonoBehaviour:
   TestWave: {fileID: 11400000, guid: 4e16d4cf8823de841b774aa1da0a0d36, type: 2}
   Player: {fileID: 0}
   FadeAnimator: {fileID: 1458898392}
+  RewardsUI: {fileID: 0}
 --- !u!1001 &1949690615
 PrefabInstance:
   m_ObjectHideFlags: 0
