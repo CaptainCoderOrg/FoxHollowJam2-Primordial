@@ -6,6 +6,7 @@ public class PlayerMovementController : MonoBehaviour
     public float MovementSpeed { get; private set; } = 5;
     [field: SerializeField]
     public Vector2 MovementInput { get; private set; }
+    public float TotalSpeed => MovementSpeed * Player.SpeedMultiplier();
 
     [SerializeField]
     private PlayerComponents Player;
@@ -32,7 +33,7 @@ public class PlayerMovementController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Player.Rigidbody.velocity = MovementInput * MovementSpeed;
+        Player.Rigidbody.velocity = MovementInput * TotalSpeed;
         Player.Animator.SetFloat("velocity", Player.Rigidbody.velocity.magnitude);
     }
 
