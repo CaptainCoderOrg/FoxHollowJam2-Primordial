@@ -168,22 +168,23 @@ public class RadarController : MonoBehaviour
 
     private void GeneratePathToBossRoom(Room currentRoom, HashSet<(int, int)> seenRooms)
     {
+        currentRoom.IsAccessible = true;
         var possibleExits = Offsets
             .Select(pair => (pair.X + currentRoom.X, pair.Y + currentRoom.Y))
             .Where(pair => pair.Item1 >= 0 && pair.Item1 < Width && pair.Item2 >= 0 && pair.Item2 < Height)
             .Where(pair => !seenRooms.Contains(pair))            
             .ToArray();
+        
+        AddReward(currentRoom);
         if (possibleExits.Length == 0) 
         { 
             GeneratePathToBossRoom(StartRoom,  new HashSet<(int, int)>() { (StartRoom.X, StartRoom.Y) }); 
             return;
         }
-        AddReward(currentRoom);
         (int x, int y) = possibleExits[Random.Range(0, possibleExits.Length)];
         seenRooms.Add((x, y));
         Room nextRoom = Rooms[x, y];
         ConnectRooms(currentRoom, nextRoom, 0);
-        currentRoom.IsAccessible = true;
         if (nextRoom == BossRoom) 
         { 
             BossRoom.IsAccessible = true;
