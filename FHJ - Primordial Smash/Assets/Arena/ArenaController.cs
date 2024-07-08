@@ -22,9 +22,16 @@ public class ArenaController : MonoBehaviour
         Debug.Assert(HUD != null);
     }
 
+    public void EnterArea()
+    {
+        if (Radar.CurrentRoom.IsComplete) { return; }
+        HUD.ShowAreaReady();
+    }
+
     public void StartArea()
     {
         if (Radar.CurrentRoom.HasStarted) { return; }
+        HUD.HideAreaReady();
         Radar.CurrentRoom.HasStarted = true;
         WaveData = Radar.CurrentRoom.Wave;
         SpawnNext();
