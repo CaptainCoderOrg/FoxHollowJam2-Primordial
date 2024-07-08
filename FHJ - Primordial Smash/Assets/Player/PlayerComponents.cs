@@ -76,4 +76,14 @@ public class PlayerComponents : MonoBehaviour
         }
         return bonus;
     }
+
+    internal int SpreadBonus()
+    {
+        int bonus = 0;
+        foreach (var powerup in PowerUps)
+        {
+            if (powerup.IsSpreadShot) { bonus++; }
+        }
+        return bonus;
+    }
 }

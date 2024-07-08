@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed3cdf0299550c442a3d45cc2711ea7f, type: 3}
   m_Name: Spreadshot
   m_EditorClassIdentifier: 
-  Name: Spreadshot
+  Name: Spread Shot
   Description: Fire more bullets with each shot
   SpeedMultiplier: 1
   CoolDownMultiplier: 1

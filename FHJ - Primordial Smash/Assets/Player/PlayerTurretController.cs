@@ -66,7 +66,20 @@ public class PlayerTurretController : MonoBehaviour
     private void Fire()
     {
         if (!CanFire) { return; }
-        GameObject parent = Instantiate(Player.Weapon.Projectile, Player.ProjectileSpawn.position, Player.Turret.transform.rotation);
+        CreateProjectile(0);
+        for (int ix = 0; ix < Player.SpreadBonus(); ix++)
+        {
+            CreateProjectile(Random.Range(-30f, 30f));
+        }
+        
+
+        StartCoroutine(CoolDownWeapon(Player.Weapon.CoolDown * Player.CoolDownMultiplier()));
+    }
+
+    private void CreateProjectile(float angle)
+    {
+        Quaternion rotation = Quaternion.Euler(Player.Turret.transform.rotation.eulerAngles + new Vector3(0, 0, angle));
+        GameObject parent = Instantiate(Player.Weapon.Projectile, Player.ProjectileSpawn.position, rotation);
         foreach (var stats in parent.GetComponentsInChildren<ProjectileStatsController>())
         {
             stats.Targets += Player.PiercingBonus();
@@ -77,8 +90,6 @@ public class PlayerTurretController : MonoBehaviour
             child.SetParent(null);
         }
         Destroy(parent.gameObject);
-
-        StartCoroutine(CoolDownWeapon(Player.Weapon.CoolDown * Player.CoolDownMultiplier()));
     }
 
     private IEnumerator CoolDownWeapon(float duration)
