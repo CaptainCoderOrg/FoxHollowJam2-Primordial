@@ -9445,7 +9445,7 @@ MonoBehaviour:
   Radar: {fileID: 0}
   HUD: {fileID: 0}
   Arrows: {fileID: 0}
-  TestArea: 0
+  TestArea: 1
   TestWave: {fileID: 11400000, guid: 4e16d4cf8823de841b774aa1da0a0d36, type: 2}
   Player: {fileID: 0}
 --- !u!1001 &1949690615

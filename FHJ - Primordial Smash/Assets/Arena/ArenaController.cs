@@ -65,10 +65,20 @@ public class ArenaController : MonoBehaviour
         SpawnNext();
     }
 
+    public void Win()
+    {
+        Arrows.HideExits();
+        Debug.Log("Win!");
+    }
+
     public void FinishArea()
     {
         if (Radar.CurrentRoom.IsComplete) { return; }
         Radar.CurrentRoom.IsComplete = true;        
+        if (Radar.CurrentRoom == Radar.BossRoom)
+        {
+            Win();
+        }
     }
 
     public IEnumerator SpawnCoroutine(EnemySpawnGroup enemySpawnGroup, float delay)
@@ -116,9 +126,9 @@ public class ArenaController : MonoBehaviour
     {
         yield return new WaitUntil(() => LivingEnemies == 0);
         // yield return new WaitForSeconds(2);
-        FinishArea();
         HUD.ShowAreaCleared();
         yield return new WaitForSeconds(2);
         Arrows.ShowExits(Radar.CurrentRoom);
+        FinishArea();
     }
 }
