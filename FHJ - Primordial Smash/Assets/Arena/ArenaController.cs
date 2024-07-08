@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ArenaController : MonoBehaviour
 {
@@ -74,10 +75,15 @@ public class ArenaController : MonoBehaviour
         SpawnNext();
     }
 
-    public void Win()
+    public void Win() => StartCoroutine(AnimateWin());
+
+    public IEnumerator AnimateWin()
     {
         Arrows.HideExits();
-        Debug.Log("Win!");
+        FadeAnimator.SetTrigger("FadeOut");
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene("EndCredits");
+
     }
 
     public void FinishArea()
