@@ -18,6 +18,7 @@ public class GruntMovementController : MonoBehaviour
     public bool IsMoving => !_animator.GetBool("isAttacking") && !_animator.GetBool("isDead");
     public string MidAirLayer = "EnemyMidAir";
     public string EnemyLayer = "Enemy";
+    public GameObject DeathSound;
     void Awake()
     {
         Speed = Random.Range(MinSpeed, MaxSpeed);
@@ -98,5 +99,6 @@ public class GruntMovementController : MonoBehaviour
     {
 
         _animator.SetBool("isDead", true);
+        
     }
 }
