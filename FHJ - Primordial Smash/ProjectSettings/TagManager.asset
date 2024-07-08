@@ -45,6 +45,9 @@ TagManager:
   - name: Terrain
     uniqueID: 2484246487
     locked: 0
+  - name: Arrow
+    uniqueID: 1579163171
+    locked: 0
   - name: Player
     uniqueID: 3565026169
     locked: 0

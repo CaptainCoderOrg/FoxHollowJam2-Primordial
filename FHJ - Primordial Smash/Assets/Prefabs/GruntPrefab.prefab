@@ -664,7 +664,7 @@ AudioSource:
   m_GameObject: {fileID: 5812360264515780095}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 7567094424336309495, guid: aa27f12f57c04d0419c8fd2f65f4305f, type: 2}
   m_audioClip: {fileID: 8300000, guid: 0fff3d5449b225d47b1ba82a64ddcea0, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.3
@@ -1135,7 +1135,7 @@ AudioSource:
   m_GameObject: {fileID: 7929876968029775222}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 7567094424336309495, guid: aa27f12f57c04d0419c8fd2f65f4305f, type: 2}
   m_audioClip: {fileID: 8300000, guid: 0fff3d5449b225d47b1ba82a64ddcea0, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.3
@@ -1233,6 +1233,7 @@ GameObject:
   - component: {fileID: 2967816871527313244}
   - component: {fileID: 8551828077725433226}
   - component: {fileID: 2788334761041031967}
+  - component: {fileID: 4685758061871699486}
   m_Layer: 9
   m_Name: Club
   m_TagString: Untagged
@@ -1360,6 +1361,23 @@ PolygonCollider2D:
       - {x: 0.195, y: 0.475}
       - {x: 0.085, y: 0.565}
   m_UseDelaunayMesh: 0
+--- !u!114 &4685758061871699486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8299722378097260829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0edf11bcdfd01d44d97594d034fd2331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 1
+  DamageSounds:
+  - {fileID: 8300000, guid: d5b86781eb5e5ba4dbe4d0aeb0a2d0a3, type: 3}
+  - {fileID: 8300000, guid: d44dd67fc409c45448ea457cc6bf5d91, type: 3}
+  - {fileID: 8300000, guid: 67f3fe06f688b3a45b80168ebe0e722c, type: 3}
 --- !u!1 &8585267022436976042
 GameObject:
   m_ObjectHideFlags: 0
