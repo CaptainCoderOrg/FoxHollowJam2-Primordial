@@ -10,7 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f86a45117d6d5a4eb80b424e6ba7050, type: 3}
-  m_Name: Munitions
+  m_Name: 00Medical Supplies
   m_EditorClassIdentifier: 
-  Name: Munitions
-  Rewards: []
+  Name: Medical Supplies
+  PowerUps:
+  - {fileID: 11400000, guid: 49ff91ecb2898a64d9ba083113a69f5c, type: 2}
+  - {fileID: 11400000, guid: b4c6d5f519b52304c9de8f921ff617d4, type: 2}

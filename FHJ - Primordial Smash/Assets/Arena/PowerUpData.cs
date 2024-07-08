@@ -14,5 +14,6 @@ public class PowerUpData : ScriptableObject
     public float DamageMultiplier = 1;
     public bool IsSpreadShot = false;
     public bool IsPiercing = false;
+    public bool HealAll = false;
     
 }

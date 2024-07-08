@@ -10,7 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f86a45117d6d5a4eb80b424e6ba7050, type: 3}
-  m_Name: Laboratory
+  m_Name: 00Laboratory
   m_EditorClassIdentifier: 
   Name: Laboratory
-  Rewards: []
+  PowerUps:
+  - {fileID: 11400000, guid: 46446d771bbb336469f4fa63c07f9b76, type: 2}
+  - {fileID: 11400000, guid: c40c63cd4100b884eb770acad05f6ebf, type: 2}

@@ -6,5 +6,5 @@ using UnityEngine;
 public class MaterialsData : ScriptableObject
 {
     public string Name = "???";
-    public GameObject[] Rewards;
+    public PowerUpData[] PowerUps;
 }
