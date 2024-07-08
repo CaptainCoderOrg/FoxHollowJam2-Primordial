@@ -21,6 +21,10 @@ public class InfoPanelController : MonoBehaviour
 
     private string GenerateRewardsScan(Room room)
     {
+        if (room.IsBossRoom)
+        {
+            return "<color=\"yellow\">Helicopter Detected</color>";
+        }
         if (room.Rewards.Count == 0 || !room.IsAccessible) { return "None Detected"; }
         HashSet<string> rewards = new();
         foreach (var reward in room.Rewards)

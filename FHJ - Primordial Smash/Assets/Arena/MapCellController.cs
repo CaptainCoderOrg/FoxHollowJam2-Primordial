@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
@@ -40,11 +41,17 @@ public class MapCellController : MonoBehaviour
 
     public void SetRoom(Room roomData)
     {
-        RoomData = roomData;
-        if (!roomData.IsAccessible) { TileImage.color = InaccessibleColor; }
+        RoomData = roomData; 
+        Refresh();
+        
+    }
+
+    internal void Refresh()
+    {
+        if (!RoomData.IsAccessible) { TileImage.color = InaccessibleColor; }
         else { TileImage.color = AccessibleColor; }
-        if (roomData.IsStartRoom) { TileImage.color = StartRoomColor; }
-        else if (roomData.IsBossRoom) { TileImage.color = BossRoomColor; }
+        if (RoomData == Parent.CurrentRoom) { TileImage.color = StartRoomColor; }
+        else if (RoomData.IsBossRoom) { TileImage.color = BossRoomColor; }
         RightExit.enabled = RoomData.Right != null;
         LeftExit.enabled = RoomData.Left != null;
         UpExit.enabled = RoomData.Up != null;

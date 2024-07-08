@@ -31,7 +31,7 @@ public class RadarController : MonoBehaviour
     public int CursorY = 0;
     public InfoPanelController InfoPanel;
     public MaterialsData[] Rewards;
-
+    public List<MapCellController> Cells = new();
     public MapCellController Selected => CellTarget.GetChild(CursorX + CursorY * Width).GetComponent<MapCellController>();
     public MapCellController Current => CellTarget.GetChild(CurrentX + CurrentY * Width).GetComponent<MapCellController>();
     public Room CurrentRoom => Current.RoomData;
@@ -126,6 +126,7 @@ public class RadarController : MonoBehaviour
         if (IsHidden)
         {
             Select(CurrentX, CurrentY);
+            RefreshUIMap();
             Animator.SetTrigger("Show");
             Selected.Select();
             IsHidden = false;
@@ -140,6 +141,7 @@ public class RadarController : MonoBehaviour
     [Button("Generate Rooms")]
     public void GenerateRooms()
     {
+        
         InitRooms();
         BossRoom = InitBossRoom();
         StartRoom = InitStartRoom();
@@ -152,8 +154,17 @@ public class RadarController : MonoBehaviour
 
     }
 
+    private void RefreshUIMap()
+    {
+        foreach(var cell in Cells)
+        {
+            cell.Refresh();
+        }
+    }
+
     private void PopulateUIMap()
     {
+        Cells.Clear();
         CellTarget.DestroyChildren();
         for (int y = 0; y < Width; y++)
         {
@@ -161,6 +172,7 @@ public class RadarController : MonoBehaviour
             {
                 MapCellController cell = Instantiate(MapCellPrefab, CellTarget);
                 cell.SetRoom(Rooms[x, y]);
+                Cells.Add(cell);
             }
         }
     }
