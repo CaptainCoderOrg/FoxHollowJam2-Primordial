@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using NaughtyAttributes;
@@ -26,14 +27,27 @@ public class RadarController : MonoBehaviour
 
     public int CurrentX = 0;
     public int CurrentY = 0;
+    public InfoPanelController InfoPanel;
 
     MapCellController Selected => CellTarget.GetChild(CurrentX + CurrentY * Width).GetComponent<MapCellController>();
 
     public void Awake()
     {
         Animator = GetComponent<Animator>();
+        InfoPanel = GetComponentInChildren<InfoPanelController>();
         GenerateRooms();
         IsHidden = true;
+    }
+
+    void Start()
+    {
+        StartCoroutine(InitSelected());
+    }
+
+    private IEnumerator InitSelected()
+    {
+        yield return null;
+        Select(StartRoom.X, StartRoom.Y);
     }
 
     void Update()
@@ -72,7 +86,9 @@ public class RadarController : MonoBehaviour
         y = Mathf.Clamp(y, 0, Height - 1);
         Selected.UnSelect();
         (CurrentX, CurrentY) = (x, y);
+        Debug.Log($"{Selected}.{Selected.RoomData}");
         Selected.Select();
+        InfoPanel.SetRoomInfo(Selected.RoomData);
     }
     
 
