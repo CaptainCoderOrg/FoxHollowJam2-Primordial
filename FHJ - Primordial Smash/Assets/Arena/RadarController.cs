@@ -125,7 +125,8 @@ public class RadarController : MonoBehaviour
     {
         if (IsHidden)
         {
-            Animator.SetTrigger("Show");
+            Select(CurrentX, CurrentY);
+            Animator.SetTrigger("Show");            
             Selected.Select();
             IsHidden = false;
         }
