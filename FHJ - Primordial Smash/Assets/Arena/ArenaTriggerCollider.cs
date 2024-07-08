@@ -7,7 +7,7 @@ public class ArenaTriggerCollider : MonoBehaviour
     public UnityEvent OnPlayerExit;
     public void OnTriggerExit2D(Collider2D other)
     {
-        if (other.IsPlayer()) { OnPlayerExit?.Invoke(); }
+        if (other != null && other.IsPlayer()) { OnPlayerExit?.Invoke(); }
         if (other.IsPlayerProjectile(out var projectile))
         {
             projectile.Despawn();
@@ -16,7 +16,7 @@ public class ArenaTriggerCollider : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.IsPlayer())
+        if (other != null && other.IsPlayer())
         {
             OnPlayerEnter?.Invoke();
         }

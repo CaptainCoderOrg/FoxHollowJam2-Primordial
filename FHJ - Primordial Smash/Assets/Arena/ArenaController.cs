@@ -35,7 +35,6 @@ public class ArenaController : MonoBehaviour
 
     public void Transition()
     {
-        Debug.Log("Transition?");
         StartCoroutine(AnimateTransition());
     }
 

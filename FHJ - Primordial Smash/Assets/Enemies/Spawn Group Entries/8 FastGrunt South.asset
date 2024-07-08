@@ -18,8 +18,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e91b33afc30596341ab59946d824caed, type: 2}
   - {fileID: 11400000, guid: e91b33afc30596341ab59946d824caed, type: 2}
   - {fileID: 11400000, guid: e91b33afc30596341ab59946d824caed, type: 2}
-  - {fileID: 11400000, guid: e91b33afc30596341ab59946d824caed, type: 2}
-  - {fileID: 11400000, guid: e91b33afc30596341ab59946d824caed, type: 2}
-  - {fileID: 11400000, guid: e91b33afc30596341ab59946d824caed, type: 2}
-  - {fileID: 11400000, guid: e91b33afc30596341ab59946d824caed, type: 2}
   SpawnDelay: 0.1
