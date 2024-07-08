@@ -13,11 +13,25 @@ MonoBehaviour:
   m_Name: Mutant Neanderthall Boss Wave
   m_EditorClassIdentifier: 
   Entries:
-  - Delay: 10
-    SpawnGroup: {fileID: 11400000, guid: ac149b71524f263489e57c247d0382a2, type: 2}
-  - Delay: 10
+  - Delay: 1
     SpawnGroup: {fileID: 11400000, guid: cb1f97963ec6dd540a0520a16617c36e, type: 2}
-  - Delay: 10
-    SpawnGroup: {fileID: 11400000, guid: f07e253fc62025448922943909d623a1, type: 2}
-  - Delay: 10
-    SpawnGroup: {fileID: 11400000, guid: 1db1c4abe67a9004f8227809fda48514, type: 2}
+  - Delay: 1
+    SpawnGroup: {fileID: 11400000, guid: eedc1b83a03c53e469a5bbc389d2aa2a, type: 2}
+  - Delay: 1
+    SpawnGroup: {fileID: 11400000, guid: ac149b71524f263489e57c247d0382a2, type: 2}
+  - Delay: 1
+    SpawnGroup: {fileID: 11400000, guid: eedc1b83a03c53e469a5bbc389d2aa2a, type: 2}
+  - Delay: 1
+    SpawnGroup: {fileID: 11400000, guid: eedc1b83a03c53e469a5bbc389d2aa2a, type: 2}
+  - Delay: 1
+    SpawnGroup: {fileID: 11400000, guid: eedc1b83a03c53e469a5bbc389d2aa2a, type: 2}
+  - Delay: 1
+    SpawnGroup: {fileID: 11400000, guid: cb1f97963ec6dd540a0520a16617c36e, type: 2}
+  - Delay: 1
+    SpawnGroup: {fileID: 11400000, guid: cb1f97963ec6dd540a0520a16617c36e, type: 2}
+  - Delay: 1
+    SpawnGroup: {fileID: 11400000, guid: cb1f97963ec6dd540a0520a16617c36e, type: 2}
+  - Delay: 1
+    SpawnGroup: {fileID: 11400000, guid: eedc1b83a03c53e469a5bbc389d2aa2a, type: 2}
+  - Delay: 1
+    SpawnGroup: {fileID: 11400000, guid: eedc1b83a03c53e469a5bbc389d2aa2a, type: 2}

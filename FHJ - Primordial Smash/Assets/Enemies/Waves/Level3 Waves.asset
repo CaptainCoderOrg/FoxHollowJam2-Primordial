@@ -13,11 +13,17 @@ MonoBehaviour:
   m_Name: Level3 Waves
   m_EditorClassIdentifier: 
   Entries:
-  - Delay: 10
-    SpawnGroup: {fileID: 11400000, guid: f07e253fc62025448922943909d623a1, type: 2}
-  - Delay: 10
-    SpawnGroup: {fileID: 11400000, guid: f07e253fc62025448922943909d623a1, type: 2}
-  - Delay: 10
-    SpawnGroup: {fileID: 11400000, guid: 1db1c4abe67a9004f8227809fda48514, type: 2}
-  - Delay: 10
-    SpawnGroup: {fileID: 11400000, guid: 1db1c4abe67a9004f8227809fda48514, type: 2}
+  - Delay: 1
+    SpawnGroup: {fileID: 11400000, guid: eedc1b83a03c53e469a5bbc389d2aa2a, type: 2}
+  - Delay: 2
+    SpawnGroup: {fileID: 11400000, guid: eedc1b83a03c53e469a5bbc389d2aa2a, type: 2}
+  - Delay: 3
+    SpawnGroup: {fileID: 11400000, guid: eedc1b83a03c53e469a5bbc389d2aa2a, type: 2}
+  - Delay: 4
+    SpawnGroup: {fileID: 11400000, guid: eedc1b83a03c53e469a5bbc389d2aa2a, type: 2}
+  - Delay: 1
+    SpawnGroup: {fileID: 11400000, guid: eedc1b83a03c53e469a5bbc389d2aa2a, type: 2}
+  - Delay: 1
+    SpawnGroup: {fileID: 11400000, guid: eedc1b83a03c53e469a5bbc389d2aa2a, type: 2}
+  - Delay: 1
+    SpawnGroup: {fileID: 11400000, guid: eedc1b83a03c53e469a5bbc389d2aa2a, type: 2}
