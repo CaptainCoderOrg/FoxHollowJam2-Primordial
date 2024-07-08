@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 [System.Serializable]
 public class Room
@@ -21,4 +23,6 @@ public class Room
     {
         return $"Room ({X}, {Y})";
     }
+
+    internal PowerUpData[] GetRewards() => Rewards.Select(r => r.GetPowerUp()).ToArray();
 }

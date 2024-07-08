@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class RadarController : MonoBehaviour
 {
-    static (int X, int Y)[] Offsets = {(-1, 0), (1, 0), (0, -1), (0, 1)};
+    static (int X, int Y)[] Offsets = { (-1, 0), (1, 0), (0, -1), (0, 1) };
     public int Width = 6;
     public int Height = 6;
     public Room[,] Rooms;
@@ -96,14 +96,14 @@ public class RadarController : MonoBehaviour
         float dpad_h = Input.GetAxis("DPad_h");
         float dpad_v = Input.GetAxis("DPad_v");
         if (dpad_h == 0) { _left = _right = false; }
-        else if (dpad_h == 1 && !_right ) { xChange = 1; _right = true; }
-        else if (dpad_h == -1 && !_left ) { xChange = -1; _left = true; }
+        else if (dpad_h == 1 && !_right) { xChange = 1; _right = true; }
+        else if (dpad_h == -1 && !_left) { xChange = -1; _left = true; }
         if (dpad_v == 0) { _up = _down = false; }
         else if (dpad_v == 1 && !_down) { yChange = -1; _down = true; }
         else if (dpad_v == -1 && !_up) { yChange = 1; _up = true; }
 
-        
-        if (xChange != 0 || yChange != 0) 
+
+        if (xChange != 0 || yChange != 0)
         {
             Select(xChange + CursorX, yChange + CursorY);
         }
@@ -118,7 +118,7 @@ public class RadarController : MonoBehaviour
         Selected.Select();
         InfoPanel.SetRoomInfo(Selected.RoomData);
     }
-    
+
 
     [Button("Toggle")]
     public void Toggle()
@@ -126,7 +126,7 @@ public class RadarController : MonoBehaviour
         if (IsHidden)
         {
             Select(CurrentX, CurrentY);
-            Animator.SetTrigger("Show");            
+            Animator.SetTrigger("Show");
             Selected.Select();
             IsHidden = false;
         }
@@ -140,15 +140,16 @@ public class RadarController : MonoBehaviour
     [Button("Generate Rooms")]
     public void GenerateRooms()
     {
-        InitRooms();        
+        InitRooms();
         BossRoom = InitBossRoom();
         StartRoom = InitStartRoom();
         CurrentX = StartRoom.X;
         CurrentY = StartRoom.Y;
         GeneratePathToBossRoom(StartRoom, new HashSet<(int, int)>() { (StartRoom.X, StartRoom.Y) });
         GeneratePathToBossRoom(StartRoom, new HashSet<(int, int)>() { (StartRoom.X, StartRoom.Y) });
+        AddReward(StartRoom);
         PopulateUIMap();
-        
+
     }
 
     private void PopulateUIMap()
@@ -179,11 +180,11 @@ public class RadarController : MonoBehaviour
             }
         }
     }
-    
+
     private Room InitBossRoom()
     {
         int bossRow = Random.Range(0, Height);
-        Room bossRoom = Rooms[Width-1, bossRow];
+        Room bossRoom = Rooms[Width - 1, bossRow];
         bossRoom.IsBossRoom = true;
         bossRoom.Wave = BossWave[Random.Range(0, BossWave.Length)];
         return bossRoom;
@@ -204,59 +205,55 @@ public class RadarController : MonoBehaviour
         var possibleExits = Offsets
             .Select(pair => (pair.X + currentRoom.X, pair.Y + currentRoom.Y))
             .Where(pair => pair.Item1 >= 0 && pair.Item1 < Width && pair.Item2 >= 0 && pair.Item2 < Height)
-            .Where(pair => !seenRooms.Contains(pair))            
+            .Where(pair => !seenRooms.Contains(pair))
             .ToArray();
-        
+
         AddReward(currentRoom);
-        if (possibleExits.Length == 0) 
-        { 
-            GeneratePathToBossRoom(StartRoom,  new HashSet<(int, int)>() { (StartRoom.X, StartRoom.Y) }); 
+        if (possibleExits.Length == 0)
+        {
+            GeneratePathToBossRoom(StartRoom, new HashSet<(int, int)>() { (StartRoom.X, StartRoom.Y) });
             return;
         }
         (int x, int y) = possibleExits[Random.Range(0, possibleExits.Length)];
         seenRooms.Add((x, y));
         Room nextRoom = Rooms[x, y];
         ConnectRooms(currentRoom, nextRoom, 0);
-        if (nextRoom == BossRoom) 
-        { 
+        if (nextRoom == BossRoom)
+        {
             BossRoom.IsAccessible = true;
-            return; 
+            return;
         }
         GeneratePathToBossRoom(nextRoom, seenRooms);
     }
 
     private void AddReward(Room room)
     {
-        if (room == StartRoom) { return; }
         if (room == BossRoom) { return; }
         if (room.Rewards.Count > 0) { return; }
         float chance = Random.Range(0.0f, 1.0f);
-        if (chance < 0.50f) // Give reward
+        int rewards = 1;
+        if (chance > 0.3f)
         {
-            chance = Random.Range(0.0f, 1.0f);
-            int rewards = 1;
-            if (chance > 0.3f)
-            {
-                rewards = 2;
-            }
-            else if (chance > 0.50f)
-            {
-                rewards = 3;
-            }
-            while (rewards > 0)
-            {
-                room.Rewards.Add(Rewards[Random.Range(0, Rewards.Length)]);
-                rewards--;
-            }
+            rewards = 2;
         }
+        else if (chance > 0.50f)
+        {
+            rewards = 3;
+        }
+        while (rewards > 0)
+        {
+            room.Rewards.Add(Rewards[Random.Range(0, Rewards.Length)]);
+            rewards--;
+        }
+
 
     }
 
     private void ConnectRooms(Room First, Room Second, int depth)
     {
         if (depth > 1) { Debug.Log($"Depth == {depth} -- something went wrong."); }
-        if (First == Second) 
-        { 
+        if (First == Second)
+        {
             return;
         }
         int xOff = First.X - Second.X;
@@ -266,28 +263,28 @@ public class RadarController : MonoBehaviour
         {
             Rooms[First.X, First.Y].Right = Rooms[First.X + 1, First.Y];
             Rooms[First.X + 1, First.Y].Left = Rooms[First.X, First.Y];
-            ConnectRooms(Rooms[First.X + 1, First.Y], Second, depth+1);
+            ConnectRooms(Rooms[First.X + 1, First.Y], Second, depth + 1);
         }
         // Second is to left of first
         else if (xOff > 0)
         {
             Rooms[First.X, First.Y].Left = Rooms[First.X - 1, First.Y];
             Rooms[First.X - 1, First.Y].Right = Rooms[First.X, First.Y];
-            ConnectRooms(Rooms[First.X - 1, First.Y], Second, depth+1);
+            ConnectRooms(Rooms[First.X - 1, First.Y], Second, depth + 1);
         }
         // Second is below first
         else if (yOff < 0)
         {
             Rooms[First.X, First.Y].Down = Rooms[First.X, First.Y + 1];
             Rooms[First.X, First.Y + 1].Up = Rooms[First.X, First.Y].Down;
-            ConnectRooms(Rooms[First.X, First.Y + 1], Second, depth+1);
+            ConnectRooms(Rooms[First.X, First.Y + 1], Second, depth + 1);
         }
         // Second is above first
         else if (yOff > 0)
         {
             Rooms[First.X, First.Y].Up = Rooms[First.X, First.Y - 1];
             Rooms[First.X, First.Y - 1].Down = Rooms[First.X, First.Y];
-            ConnectRooms(Rooms[First.X, First.Y - 1], Second, depth+1);
+            ConnectRooms(Rooms[First.X, First.Y - 1], Second, depth + 1);
         }
     }
 

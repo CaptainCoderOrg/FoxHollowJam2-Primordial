@@ -20,6 +20,7 @@ public class ArenaController : MonoBehaviour
     public EnemyWaveData TestWave;
     public PlayerComponents Player;
     public Animator FadeAnimator;
+    public RewardsUIController RewardsUI;
 
     void Awake()
     {
@@ -31,6 +32,8 @@ public class ArenaController : MonoBehaviour
         Debug.Assert(HUD != null);
         Arrows = FindFirstObjectByType<ArrowsController>();
         Debug.Assert(Arrows != null);
+        RewardsUI = FindFirstObjectByType<RewardsUIController>();
+        Debug.Assert(RewardsUI != null);
     }
 
     public void Transition()
@@ -88,6 +91,9 @@ public class ArenaController : MonoBehaviour
 
     public IEnumerator AnimateRewards()
     {
+        PowerUpData[] powerups = Radar.CurrentRoom.GetRewards();
+        if (powerups.Length == 0) { yield break; }
+        RewardsUI.SetRewards(powerups);
         yield break;
     }
 
