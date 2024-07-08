@@ -107,7 +107,7 @@ public class ArenaController : MonoBehaviour
                 GameObject newEnemy = Instantiate(enemy.Prefab);
                 float xOff = Random.Range(-2, 2);
                 float yOff = Random.Range(-2, 2);
-                Vector3 position = SpawnPoints[(int)entry.SpawnPoint].position;
+                Vector3 position = SpawnPoints[entry.SpawnPoint.ToIndex()].position;
                 position.x += xOff;
                 position.y += yOff;
                 newEnemy.transform.position = position;

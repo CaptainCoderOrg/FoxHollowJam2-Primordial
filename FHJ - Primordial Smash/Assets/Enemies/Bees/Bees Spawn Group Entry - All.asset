@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52644f17aff282c40a9ba6bef2ed0001, type: 3}
-  m_Name: TestRoom
+  m_Script: {fileID: 11500000, guid: 80971d3ab926c3c4fa7d753f076d9354, type: 3}
+  m_Name: Bees Spawn Group Entry - All
   m_EditorClassIdentifier: 
-  Entries:
-  - Delay: 10
-    SpawnGroup: {fileID: 11400000, guid: 0381c3f26182b5046b76c73c3f01deb5, type: 2}
+  SpawnPoint: -1
+  Enemies:
+  - {fileID: 11400000, guid: 95eea0aea042f5442b03c1f9f1c1eb26, type: 2}
+  SpawnDelay: 1
