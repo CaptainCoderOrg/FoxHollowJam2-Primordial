@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80971d3ab926c3c4fa7d753f076d9354, type: 3}
   m_Name: 8 FastGrunt West
   m_EditorClassIdentifier: 
-  SpawnPoint: 3
+  SpawnPoint: 8
   Enemies:
   - {fileID: 11400000, guid: e91b33afc30596341ab59946d824caed, type: 2}
   - {fileID: 11400000, guid: e91b33afc30596341ab59946d824caed, type: 2}

@@ -35,6 +35,7 @@ public class ArenaController : MonoBehaviour
 
     public void Transition()
     {
+        Debug.Log("Transition?");
         StartCoroutine(AnimateTransition());
     }
 
@@ -47,7 +48,7 @@ public class ArenaController : MonoBehaviour
         Arrows.HideExits();
         yield return new WaitForSeconds(1);
         FadeAnimator.SetTrigger("FadeIn");
-        Player.transform.position = PlayerSpawnPoints[((int)Radar.ExitDirection + 2) % PlayerSpawnPoints.Length].position;
+        Player.transform.position = PlayerSpawnPoints[Radar.ExitDirection.ToIndex()].position;
         
     }
 

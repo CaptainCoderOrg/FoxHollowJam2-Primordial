@@ -9,7 +9,6 @@ public class ProjectileStatsController : MonoBehaviour
 
     public void Despawn()
     {
-        Debug.Log("Despawn");
         Destroy(gameObject);
     }
 }

@@ -44,7 +44,7 @@ public class RadarController : MonoBehaviour
     public void SetNextRoomDown() => SetNextRoom(SpawnPoint.South);
     public void SetNextRoom(SpawnPoint direction)
     {
-        ExitDirection = direction;
+        ExitDirection = direction.Opposite();
         NextRoom = direction switch
         {
             SpawnPoint.North => CurrentRoom.Up,

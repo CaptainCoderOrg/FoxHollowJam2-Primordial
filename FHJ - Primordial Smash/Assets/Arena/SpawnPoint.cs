@@ -22,4 +22,16 @@ public static class SpawnPointExtensions
         if (spawnPoint.HasFlag(SpawnPoint.West)) { indices.Add(3); }
         return indices[UnityEngine.Random.Range(0, indices.Count)];
     }
+
+    public static SpawnPoint Opposite(this SpawnPoint spawnPoint)
+    {
+        return spawnPoint switch
+        {
+            SpawnPoint.North => SpawnPoint.South,
+            SpawnPoint.East => SpawnPoint.West,
+            SpawnPoint.South => SpawnPoint.North,
+            SpawnPoint.West => SpawnPoint.East,
+            _ => throw new System.NotImplementedException($"Unknown directionL {spawnPoint}"),
+        };
+    }
 }
