@@ -16,7 +16,8 @@ MonoBehaviour:
   Description: Increases health
   SpeedMultiplier: 1
   CoolDownMultiplier: 1
-  HealthMultiplier: 1.2
+  HealthBonus: 1
   DamageMultiplier: 1
   IsSpreadShot: 0
   IsPiercing: 0
+  HealAll: 0

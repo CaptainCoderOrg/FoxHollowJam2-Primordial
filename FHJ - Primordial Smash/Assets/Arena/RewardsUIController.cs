@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using NaughtyAttributes;
 using TMPro;
@@ -35,8 +36,17 @@ public class RewardsUIController : MonoBehaviour
     public void Claim()
     {
         Animator.SetTrigger("Hide");
-        Player.PowerUps.AddRange(PowerUps);
-        PowerUps.Clear();        
+        if (PowerUps.Count > 0)
+        {
+            if (PowerUps.FirstOrDefault(v => v.HealAll) != null)
+            {
+                Player.Damage = 0;
+            }
+            Player.PowerUps.AddRange(PowerUps);
+            Player.NotifyHealthChanged();
+            PowerUps.Clear();
+        }
+               
     }
 
     [Button("Test")]
