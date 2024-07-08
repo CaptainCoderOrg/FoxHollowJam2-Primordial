@@ -18,6 +18,7 @@ public class ArenaController : MonoBehaviour
     public bool TestArea;
     public EnemyWaveData TestWave;
     public PlayerComponents Player;
+    public Animator FadeAnimator;
 
     void Awake()
     {
@@ -33,10 +34,18 @@ public class ArenaController : MonoBehaviour
 
     public void Transition()
     {
-        if(Radar.NextRoom == null) { return; }
+        StartCoroutine(AnimateTransition());
+    }
+
+    public IEnumerator AnimateTransition()
+    {
+        if(Radar.NextRoom == null) { yield break; }
+        FadeAnimator.SetTrigger("FadeOut");
         Radar.CurrentX = Radar.NextRoom.X;
         Radar.CurrentY = Radar.NextRoom.Y;
         Arrows.HideExits();
+        yield return new WaitForSeconds(1);
+        FadeAnimator.SetTrigger("FadeIn");
         Player.transform.position = PlayerSpawnPoints[((int)Radar.ExitDirection + 2) % PlayerSpawnPoints.Length].position;
         
     }
