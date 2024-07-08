@@ -1,9 +1,11 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerDamageController : MonoBehaviour
 {
     public PlayerComponents Player;
     public AudioSource AudioSource;
+    public UnityEvent<float> OnDamaged;
 
     void Awake()
     {
@@ -15,6 +17,7 @@ public class PlayerDamageController : MonoBehaviour
     {
         if(other.TryGetComponent<EnemyWeaponController>(out var enemyWeapon))
         {
+            OnDamaged?.Invoke(enemyWeapon.TotalDamage);
             if (AudioSource.isPlaying) { return; }
             if(enemyWeapon.DamageSounds.Length > 0)
             {
