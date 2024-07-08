@@ -21,7 +21,6 @@ public class InfoPanelController : MonoBehaviour
     private string GenerateBioScan(Room room)
     {
         HashSet<string> EnemyNames = new();
-        Debug.Log($"{room.Wave == null}");
         foreach (var entry in room.Wave.Entries)
         {
             foreach (var group in entry.SpawnGroup.Entries)
@@ -32,6 +31,6 @@ public class InfoPanelController : MonoBehaviour
                 }
             }
         }
-        return $" * {string.Join("\n* ", EnemyNames)}".TrimEnd();
+        return $" * {string.Join("\n * ", EnemyNames)}".TrimEnd();
     }
 }

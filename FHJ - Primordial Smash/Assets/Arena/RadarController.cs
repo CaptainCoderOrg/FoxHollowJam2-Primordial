@@ -86,7 +86,6 @@ public class RadarController : MonoBehaviour
         y = Mathf.Clamp(y, 0, Height - 1);
         Selected.UnSelect();
         (CurrentX, CurrentY) = (x, y);
-        Debug.Log($"{Selected}.{Selected.RoomData}");
         Selected.Select();
         InfoPanel.SetRoomInfo(Selected.RoomData);
     }

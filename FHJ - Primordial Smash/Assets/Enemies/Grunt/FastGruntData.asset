@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5ec667f1bc13864a91453658a8d79e8, type: 3}
   m_Name: FastGruntData
   m_EditorClassIdentifier: 
-  Name: Grunt
+  Name: Neanderthalensis
   Prefab: {fileID: 7606106095755839384, guid: 70d0634a3bf4e0645a8975cebe7e8b17, type: 3}
