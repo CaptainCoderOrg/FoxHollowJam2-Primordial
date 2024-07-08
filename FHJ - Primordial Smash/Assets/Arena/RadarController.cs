@@ -47,10 +47,10 @@ public class RadarController : MonoBehaviour
         ExitDirection = direction.Opposite();
         NextRoom = direction switch
         {
-            SpawnPoint.North => CurrentRoom.Up,
-            SpawnPoint.East => CurrentRoom.Right,
-            SpawnPoint.South => CurrentRoom.Down,
-            SpawnPoint.West => CurrentRoom.Left,
+            SpawnPoint.North => Rooms[CurrentRoom.X, CurrentRoom.Y - 1],
+            SpawnPoint.East => Rooms[CurrentRoom.X + 1, CurrentRoom.Y],
+            SpawnPoint.South => Rooms[CurrentRoom.X, CurrentRoom.Y + 1],
+            SpawnPoint.West => Rooms[CurrentRoom.X - 1, CurrentRoom.Y],
             _ => throw new System.NotImplementedException($"Unknown directionL {direction}"),
         };
     }
