@@ -6,6 +6,7 @@ using UnityEngine;
 public class ArenaController : MonoBehaviour
 {
     public Transform[] SpawnPoints;
+    public Transform[] PlayerSpawnPoints;
     public EnemyWaveData WaveData;
     public int NextWaveIx = 0;
     public int LivingEnemies;
@@ -16,15 +17,28 @@ public class ArenaController : MonoBehaviour
     public ArrowsController Arrows;
     public bool TestArea;
     public EnemyWaveData TestWave;
+    public PlayerComponents Player;
 
     void Awake()
     {
+        Player = FindFirstObjectByType<PlayerComponents>();
+        Debug.Assert(Player != null);
         Radar = FindFirstObjectByType<RadarController>();
         Debug.Assert(Radar != null);
         HUD = FindFirstObjectByType<HUDController>();
         Debug.Assert(HUD != null);
         Arrows = FindFirstObjectByType<ArrowsController>();
         Debug.Assert(Arrows != null);
+    }
+
+    public void Transition()
+    {
+        if(Radar.NextRoom == null) { return; }
+        Radar.CurrentX = Radar.NextRoom.X;
+        Radar.CurrentY = Radar.NextRoom.Y;
+        Arrows.HideExits();
+        Player.transform.position = PlayerSpawnPoints[((int)Radar.ExitDirection + 2) % PlayerSpawnPoints.Length].position;
+        
     }
 
     public void EnterArea()

@@ -600,7 +600,19 @@ MonoBehaviour:
         m_CallState: 2
   OnPlayerExit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1937934526}
+        m_TargetAssemblyTypeName: ArenaController, Assembly-CSharp
+        m_MethodName: Transition
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &69780506
 GameObject:
   m_ObjectHideFlags: 0
@@ -1924,6 +1936,37 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &274209344
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 274209345}
+  m_Layer: 0
+  m_Name: PlayerSpawnWest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &274209345
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274209344}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -28.92, y: 0, z: -7.3466854}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1937934525}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &281237060
 GameObject:
   m_ObjectHideFlags: 0
@@ -4078,6 +4121,37 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7889644349628986641, guid: 40386dde3042bcb42a1b0a4efaac6a34, type: 3}
   m_PrefabInstance: {fileID: 717072850}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &730283392
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 730283393}
+  m_Layer: 0
+  m_Name: PlayerSpawnSouth
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &730283393
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730283392}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -14.67, z: -7.3466854}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1937934525}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &768710985 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7889644349628986641, guid: 40386dde3042bcb42a1b0a4efaac6a34, type: 3}
@@ -6365,6 +6439,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 208145608}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1407445470
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1407445471}
+  m_Layer: 0
+  m_Name: PlayerSpawnEast
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1407445471
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407445470}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 29.59, y: 0, z: -7.3466854}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1937934525}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1443583225
 PrefabInstance:
@@ -9304,6 +9409,10 @@ Transform:
   - {fileID: 1344723111}
   - {fileID: 1516681842}
   - {fileID: 1226965721}
+  - {fileID: 2039630260}
+  - {fileID: 1407445471}
+  - {fileID: 730283393}
+  - {fileID: 274209345}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1937934526
@@ -9323,6 +9432,11 @@ MonoBehaviour:
   - {fileID: 1516681842}
   - {fileID: 395245679}
   - {fileID: 1226965721}
+  PlayerSpawnPoints:
+  - {fileID: 2039630260}
+  - {fileID: 1407445471}
+  - {fileID: 730283393}
+  - {fileID: 274209345}
   WaveData: {fileID: 11400000, guid: e33a4f8f5f2a004469cc7570984e798f, type: 2}
   NextWaveIx: 0
   LivingEnemies: 0
@@ -9333,6 +9447,7 @@ MonoBehaviour:
   Arrows: {fileID: 0}
   TestArea: 1
   TestWave: {fileID: 11400000, guid: 4e16d4cf8823de841b774aa1da0a0d36, type: 2}
+  Player: {fileID: 0}
 --- !u!1001 &1949690615
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9921,6 +10036,37 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1 &2039630259
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2039630260}
+  m_Layer: 0
+  m_Name: PlayerSpawnNorth
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2039630260
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2039630259}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 13.63, z: -7.3466854}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1937934525}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2049672475
 GameObject:
   m_ObjectHideFlags: 0
