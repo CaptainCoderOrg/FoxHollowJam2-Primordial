@@ -27,11 +27,14 @@ public class RadarController : MonoBehaviour
 
     public int CurrentX = 0;
     public int CurrentY = 0;
+    public int CursorX = 0;
+    public int CursorY = 0;
     public InfoPanelController InfoPanel;
     public MaterialsData[] Rewards;
 
-    public MapCellController Selected => CellTarget.GetChild(CurrentX + CurrentY * Width).GetComponent<MapCellController>();
-    public Room CurrentRoom => Selected.RoomData;
+    public MapCellController Selected => CellTarget.GetChild(CursorX + CursorY * Width).GetComponent<MapCellController>();
+    public MapCellController Current => CellTarget.GetChild(CurrentX + CurrentY * Width).GetComponent<MapCellController>();
+    public Room CurrentRoom => Current.RoomData;
 
     public void Awake()
     {
@@ -78,7 +81,7 @@ public class RadarController : MonoBehaviour
         
         if (xChange != 0 || yChange != 0) 
         {
-            Select(xChange + CurrentX, yChange + CurrentY);
+            Select(xChange + CursorX, yChange + CursorY);
         }
     }
 
@@ -87,7 +90,7 @@ public class RadarController : MonoBehaviour
         x = Mathf.Clamp(x, 0, Width - 1);
         y = Mathf.Clamp(y, 0, Height - 1);
         Selected.UnSelect();
-        (CurrentX, CurrentY) = (x, y);
+        (CursorX, CursorY) = (x, y);
         Selected.Select();
         InfoPanel.SetRoomInfo(Selected.RoomData);
     }
@@ -115,9 +118,12 @@ public class RadarController : MonoBehaviour
         InitRooms();        
         BossRoom = InitBossRoom();
         StartRoom = InitStartRoom();
+        CurrentX = StartRoom.X;
+        CurrentY = StartRoom.Y;
         GeneratePathToBossRoom(StartRoom, new HashSet<(int, int)>() { (StartRoom.X, StartRoom.Y) });
         GeneratePathToBossRoom(StartRoom, new HashSet<(int, int)>() { (StartRoom.X, StartRoom.Y) });
         PopulateUIMap();
+        
     }
 
     private void PopulateUIMap()

@@ -13,6 +13,8 @@ public class ArenaController : MonoBehaviour
     public int MaximumEnemies = 128;
     public RadarController Radar;
     public HUDController HUD;
+    public ArrowsController Arrows;
+    
 
     void Awake()
     {
@@ -20,6 +22,8 @@ public class ArenaController : MonoBehaviour
         Debug.Assert(Radar != null);
         HUD = FindFirstObjectByType<HUDController>();
         Debug.Assert(HUD != null);
+        Arrows = FindFirstObjectByType<ArrowsController>();
+        Debug.Assert(Arrows != null);
     }
 
     public void EnterArea()
@@ -40,9 +44,7 @@ public class ArenaController : MonoBehaviour
     public void FinishArea()
     {
         if (Radar.CurrentRoom.IsComplete) { return; }
-        Radar.CurrentRoom.IsComplete = true;
-        HUD.ShowAreaCleared();
-        
+        Radar.CurrentRoom.IsComplete = true;        
     }
 
     public IEnumerator SpawnCoroutine(EnemySpawnGroup enemySpawnGroup, float delay)
@@ -91,5 +93,8 @@ public class ArenaController : MonoBehaviour
         yield return new WaitUntil(() => LivingEnemies == 0);
         yield return new WaitForSeconds(2);
         FinishArea();
+        HUD.ShowAreaCleared();
+        yield return new WaitForSeconds(2);
+        Arrows.ShowExits(Radar.CurrentRoom);
     }
 }
