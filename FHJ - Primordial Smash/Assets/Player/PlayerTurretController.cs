@@ -67,6 +67,10 @@ public class PlayerTurretController : MonoBehaviour
     {
         if (!CanFire) { return; }
         GameObject parent = Instantiate(Player.Weapon.Projectile, Player.ProjectileSpawn.position, Player.Turret.transform.rotation);
+        foreach (var stats in parent.GetComponentsInChildren<ProjectileStatsController>())
+        {
+            stats.Targets += Player.PiercingBonus();
+        }
         for (int ix = parent.transform.childCount - 1; ix >= 0; ix--)
         {
             Transform child = parent.transform.GetChild(ix);

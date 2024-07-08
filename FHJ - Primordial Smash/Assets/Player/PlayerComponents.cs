@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -66,4 +67,13 @@ public class PlayerComponents : MonoBehaviour
         return multiplier;
     }
 
+    internal int PiercingBonus()
+    {
+        int bonus = 0;
+        foreach (var powerup in PowerUps)
+        {
+            if (powerup.IsPiercing) { bonus++; }
+        }
+        return bonus;
+    }
 }
