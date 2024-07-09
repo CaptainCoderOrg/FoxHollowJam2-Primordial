@@ -127,6 +127,7 @@ public class ArenaController : MonoBehaviour
     {
         if (Radar.CurrentRoom.IsComplete) { return; }
         Radar.CurrentRoom.IsComplete = true;
+        Player.Damage -= Player.Regen;
         StartCoroutine(AnimateRewards());        
         if (Radar.CurrentRoom == Radar.BossRoom)
         {

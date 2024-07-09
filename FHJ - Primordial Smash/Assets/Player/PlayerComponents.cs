@@ -33,6 +33,7 @@ public class PlayerComponents : MonoBehaviour
     [SerializeField]
     private int _damage = 0;
     public bool IsDead => Health <= 0;
+    public int Regen => 0 + RegenBonus();
     public UnityEvent<int> HealthChanged; 
     public int Damage
     {
@@ -133,6 +134,16 @@ public class PlayerComponents : MonoBehaviour
         foreach (var powerup in PowerUps)
         {
             if (powerup.IsPiercing) { bonus++; }
+        }
+        return bonus;
+    }
+
+    internal int RegenBonus()
+    {
+        int bonus = 0;
+        foreach (var powerup in PowerUps)
+        {
+            if (powerup.IsRegen) { bonus++; }
         }
         return bonus;
     }

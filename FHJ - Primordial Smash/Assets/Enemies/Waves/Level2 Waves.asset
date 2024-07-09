@@ -21,3 +21,5 @@ MonoBehaviour:
     SpawnGroup: {fileID: 11400000, guid: eedc1b83a03c53e469a5bbc389d2aa2a, type: 2}
   - Delay: 10
     SpawnGroup: {fileID: 11400000, guid: eedc1b83a03c53e469a5bbc389d2aa2a, type: 2}
+  MinRow: 0
+  MaxRow: 3

@@ -15,5 +15,5 @@ public class PowerUpData : ScriptableObject
     public bool IsSpreadShot = false;
     public bool IsPiercing = false;
     public bool HealAll = false;
-    
+    public bool IsRegen = false;
 }

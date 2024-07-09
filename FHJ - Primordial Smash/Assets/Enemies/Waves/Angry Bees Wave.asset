@@ -10,16 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 52644f17aff282c40a9ba6bef2ed0001, type: 3}
-  m_Name: Level4 Waves
+  m_Name: Angry Bees Wave
   m_EditorClassIdentifier: 
   Entries:
+  - Delay: 0
+    SpawnGroup: {fileID: 11400000, guid: ac149b71524f263489e57c247d0382a2, type: 2}
+  - Delay: 0
+    SpawnGroup: {fileID: 11400000, guid: ac149b71524f263489e57c247d0382a2, type: 2}
+  - Delay: 1
+    SpawnGroup: {fileID: 11400000, guid: eedc1b83a03c53e469a5bbc389d2aa2a, type: 2}
+  - Delay: 1
+    SpawnGroup: {fileID: 11400000, guid: eedc1b83a03c53e469a5bbc389d2aa2a, type: 2}
   - Delay: 10
+    SpawnGroup: {fileID: 11400000, guid: 196aa4dc133fa0a4ab534cccab819a7a, type: 2}
+  - Delay: 0
     SpawnGroup: {fileID: 11400000, guid: cb1f97963ec6dd540a0520a16617c36e, type: 2}
-  - Delay: 10
-    SpawnGroup: {fileID: 11400000, guid: ac149b71524f263489e57c247d0382a2, type: 2}
-  - Delay: 10
-    SpawnGroup: {fileID: 11400000, guid: ac149b71524f263489e57c247d0382a2, type: 2}
-  - Delay: 10
-    SpawnGroup: {fileID: 11400000, guid: ac149b71524f263489e57c247d0382a2, type: 2}
-  MinRow: 0
-  MaxRow: 3
+  MinRow: 3
+  MaxRow: 6

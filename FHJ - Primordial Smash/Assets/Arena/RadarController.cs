@@ -141,7 +141,7 @@ public class RadarController : MonoBehaviour
     [Button("Generate Rooms")]
     public void GenerateRooms()
     {
-        
+
         InitRooms();
         BossRoom = InitBossRoom();
         StartRoom = InitStartRoom();
@@ -156,7 +156,7 @@ public class RadarController : MonoBehaviour
 
     private void RefreshUIMap()
     {
-        foreach(var cell in Cells)
+        foreach (var cell in Cells)
         {
             cell.Refresh();
         }
@@ -179,15 +179,20 @@ public class RadarController : MonoBehaviour
     private void InitRooms()
     {
         Rooms = new Room[Width, Height];
-        for (int row = 0; row < Width; row++)
+
+        for (int col = 0; col < Height; col++)
         {
-            for (int col = 0; col < Height; col++)
+            EnemyWaveData[] waves = MiddleWaves.Where(w => col >= w.MinRow && col <= w.MaxRow).ToArray();
+            EnemyWaveData wave = waves[Random.Range(0, waves.Length)];
+            for (int row = 0; row < Width; row++)
             {
+
+
                 Rooms[col, row] = new Room
                 {
                     Y = row,
                     X = col,
-                    Wave = MiddleWaves[Random.Range(0, MiddleWaves.Length)]
+                    Wave = wave,
                 };
             }
         }

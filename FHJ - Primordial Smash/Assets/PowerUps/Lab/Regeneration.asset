@@ -10,12 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed3cdf0299550c442a3d45cc2711ea7f, type: 3}
-  m_Name: Great Speed Boost
+  m_Name: Regeneration
   m_EditorClassIdentifier: 
-  Name: Great Speed Boost
-  Description: Greatly Increases Speed
-  SpeedMultiplier: 1.5
+  Name: Regeneration
+  Description: Gain 1 Health Each Zone
+  SpeedMultiplier: 1
   CoolDownMultiplier: 1
-  HealthMultiplier: 1
+  HealthBonus: 0
   DamageMultiplier: 1
   IsSpreadShot: 0
+  IsPiercing: 0
+  HealAll: 0
+  IsRegen: 1

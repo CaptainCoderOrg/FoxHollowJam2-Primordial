@@ -3816,6 +3816,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 87ca7c6d2bfacfa4dbb0bb98eae803c5, type: 2}
   - {fileID: 11400000, guid: 1aa2fde474ab672428d2ce207daf8245, type: 2}
   - {fileID: 11400000, guid: 51733686c38726e4da371264111cd303, type: 2}
+  - {fileID: 11400000, guid: aa8097c649cd26547985a3196d460192, type: 2}
+  - {fileID: 11400000, guid: 718804791ba657d4d9bec5c186645348, type: 2}
+  - {fileID: 11400000, guid: 8874c3e4307f31c4ab511c9981b3f220, type: 2}
   StartRoom:
     Wave: {fileID: 11400000, guid: e33a4f8f5f2a004469cc7570984e798f, type: 2}
     Rewards: []
@@ -13163,6 +13166,10 @@ PrefabInstance:
     - target: {fileID: 3638590567246740856, guid: dee38dce7ac90394a9f801a9302788f5, type: 3}
       propertyPath: m_Offset.y
       value: -0.11658762
+      objectReference: {fileID: 0}
+    - target: {fileID: 3709795233318166400, guid: dee38dce7ac90394a9f801a9302788f5, type: 3}
+      propertyPath: BaseHealth
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3709795233318166400, guid: dee38dce7ac90394a9f801a9302788f5, type: 3}
       propertyPath: InvlunerableTime
