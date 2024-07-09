@@ -14,4 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Entries:
   - Delay: 10
-    SpawnGroup: {fileID: 11400000, guid: eedc1b83a03c53e469a5bbc389d2aa2a, type: 2}
+    SpawnGroup: {fileID: 11400000, guid: 1a0b97f2b57ef64488abca7a89af7f01, type: 2}
+  - Delay: 10
+    SpawnGroup: {fileID: 11400000, guid: bd9411542519d704c837ebd5e9935d5a, type: 2}
+  MinRow: 0
+  MaxRow: 6
