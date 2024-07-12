@@ -6,6 +6,7 @@ public class PlayerMovementController : MonoBehaviour
     public float MovementSpeed { get; private set; } = 5;
     [field: SerializeField]
     public Vector2 MovementInput { get; private set; }
+    public Vector2 Direction => Player.Body.transform.rotation * Vector2.up;
     public float TotalSpeed => MovementSpeed * Player.SpeedMultiplier();
 
     [SerializeField]

@@ -11,6 +11,8 @@ public class PlayerComponents : MonoBehaviour
     [field: SerializeField]
     public Rigidbody2D Rigidbody { get; private set; }
     [field: SerializeField]
+    public PlayerMovementController MovementController { get; private set; }
+    [field: SerializeField]
     public GameObject Body { get; private set; }
     [field: SerializeField]
     public GameObject Turret { get; private set; }
@@ -73,6 +75,8 @@ public class PlayerComponents : MonoBehaviour
 
     void Awake()
     {
+        MovementController = GetComponent<PlayerMovementController>();
+        Debug.Assert(MovementController != null);
         Rigidbody = GetComponent<Rigidbody2D>();
         Animator = GetComponent<Animator>();
         HealthChanged.AddListener(value => 
