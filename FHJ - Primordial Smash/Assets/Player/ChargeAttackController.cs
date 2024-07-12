@@ -36,7 +36,7 @@ public class ChargeAttackController : MonoBehaviour
         {
             IsCharging = false;
         }
-        if (Input.GetButtonUp("ChargeAttack") && ChargeAmount > 0.5f)
+        if (Input.GetButtonUp("ChargeAttack") && ChargeAmount >= 0.5f)
         {
             
             StartCoroutine(Charge(ChargeAmount));
@@ -56,7 +56,7 @@ public class ChargeAttackController : MonoBehaviour
             yield return new WaitForFixedUpdate();
             duration -= Time.fixedDeltaTime;
             float percent = ChargeSpeed.Evaluate((Duration - duration)/Duration);
-            Player.Rigidbody.velocity = ChargeDirection * ChargeForce * percent;
+            Player.Rigidbody.velocity = ChargeDirection * ChargeForce*amount * percent;
         }
         _isTrampling = false;
         Player.MovementController.enabled = true;
