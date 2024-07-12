@@ -50,6 +50,7 @@ public class ChargeAttackController : MonoBehaviour
         ChargeDirection = Player.MovementController.Direction;
         Player.MovementController.enabled = false;
         _isTrampling = true;
+        Player.Animator.SetBool("isTrampling", true);
         float duration = Duration;
         while (duration > 0)
         {
@@ -59,6 +60,7 @@ public class ChargeAttackController : MonoBehaviour
             Player.Rigidbody.velocity = ChargeDirection * ChargeForce*amount * percent;
         }
         _isTrampling = false;
+        Player.Animator.SetBool("isTrampling", false);
         Player.MovementController.enabled = true;
         while (_coolDownRemaining > 0)
         {

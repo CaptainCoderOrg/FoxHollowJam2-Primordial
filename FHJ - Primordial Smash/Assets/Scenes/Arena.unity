@@ -4105,7 +4105,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4087
+    m_Bits: 12279
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -12929,94 +12929,6 @@ PrefabInstance:
     - target: {fileID: 5941034332969258609, guid: dee38dce7ac90394a9f801a9302788f5, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 6293287088071417588, guid: dee38dce7ac90394a9f801a9302788f5, type: 3}
-      propertyPath: ChargeForce
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 6293287088071417588, guid: dee38dce7ac90394a9f801a9302788f5, type: 3}
-      propertyPath: <Duration>k__BackingField
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6293287088071417588, guid: dee38dce7ac90394a9f801a9302788f5, type: 3}
-      propertyPath: ChargeSpeed.m_Curve.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6293287088071417588, guid: dee38dce7ac90394a9f801a9302788f5, type: 3}
-      propertyPath: ChargeSpeed.m_Curve.Array.data[1].time
-      value: 0.71315557
-      objectReference: {fileID: 0}
-    - target: {fileID: 6293287088071417588, guid: dee38dce7ac90394a9f801a9302788f5, type: 3}
-      propertyPath: ChargeSpeed.m_Curve.Array.data[2].time
-      value: 0.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 6293287088071417588, guid: dee38dce7ac90394a9f801a9302788f5, type: 3}
-      propertyPath: ChargeSpeed.m_Curve.Array.data[3].time
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6293287088071417588, guid: dee38dce7ac90394a9f801a9302788f5, type: 3}
-      propertyPath: ChargeSpeed.m_Curve.Array.data[0].value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6293287088071417588, guid: dee38dce7ac90394a9f801a9302788f5, type: 3}
-      propertyPath: ChargeSpeed.m_Curve.Array.data[1].value
-      value: 0.61856925
-      objectReference: {fileID: 0}
-    - target: {fileID: 6293287088071417588, guid: dee38dce7ac90394a9f801a9302788f5, type: 3}
-      propertyPath: ChargeSpeed.m_Curve.Array.data[0].inSlope
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6293287088071417588, guid: dee38dce7ac90394a9f801a9302788f5, type: 3}
-      propertyPath: ChargeSpeed.m_Curve.Array.data[1].inSlope
-      value: -1.9227304
-      objectReference: {fileID: 0}
-    - target: {fileID: 6293287088071417588, guid: dee38dce7ac90394a9f801a9302788f5, type: 3}
-      propertyPath: ChargeSpeed.m_Curve.Array.data[2].inSlope
-      value: -1.7702925
-      objectReference: {fileID: 0}
-    - target: {fileID: 6293287088071417588, guid: dee38dce7ac90394a9f801a9302788f5, type: 3}
-      propertyPath: ChargeSpeed.m_Curve.Array.data[0].outSlope
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6293287088071417588, guid: dee38dce7ac90394a9f801a9302788f5, type: 3}
-      propertyPath: ChargeSpeed.m_Curve.Array.data[1].inWeight
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 6293287088071417588, guid: dee38dce7ac90394a9f801a9302788f5, type: 3}
-      propertyPath: ChargeSpeed.m_Curve.Array.data[1].outSlope
-      value: -1.9227304
-      objectReference: {fileID: 0}
-    - target: {fileID: 6293287088071417588, guid: dee38dce7ac90394a9f801a9302788f5, type: 3}
-      propertyPath: ChargeSpeed.m_Curve.Array.data[2].outSlope
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6293287088071417588, guid: dee38dce7ac90394a9f801a9302788f5, type: 3}
-      propertyPath: ChargeSpeed.m_Curve.Array.data[3].inWeight
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 6293287088071417588, guid: dee38dce7ac90394a9f801a9302788f5, type: 3}
-      propertyPath: ChargeSpeed.m_Curve.Array.data[0].outWeight
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 6293287088071417588, guid: dee38dce7ac90394a9f801a9302788f5, type: 3}
-      propertyPath: ChargeSpeed.m_Curve.Array.data[1].outWeight
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 6293287088071417588, guid: dee38dce7ac90394a9f801a9302788f5, type: 3}
-      propertyPath: ChargeSpeed.m_Curve.Array.data[2].outWeight
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 6293287088071417588, guid: dee38dce7ac90394a9f801a9302788f5, type: 3}
-      propertyPath: ChargeSpeed.m_Curve.Array.data[0].tangentMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6293287088071417588, guid: dee38dce7ac90394a9f801a9302788f5, type: 3}
-      propertyPath: ChargeSpeed.m_Curve.Array.data[2].tangentMode
-      value: 65
-      objectReference: {fileID: 0}
-    - target: {fileID: 6293287088071417588, guid: dee38dce7ac90394a9f801a9302788f5, type: 3}
-      propertyPath: ChargeSpeed.m_Curve.Array.data[3].tangentMode
-      value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 6356648447629915453, guid: dee38dce7ac90394a9f801a9302788f5, type: 3}
       propertyPath: m_LocalPosition.x
