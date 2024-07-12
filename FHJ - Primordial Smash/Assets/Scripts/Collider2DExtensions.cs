@@ -21,4 +21,11 @@ public static class Collider2DExtensions
         return tag == "Player Projectile";
     }
 
+    public static bool IsPlayerTrampleAttack(this Collider2D collider2D, out ChargeAttackController chargeAttack)
+    {
+        chargeAttack = collider2D?.attachedRigidbody?.GetComponent<ChargeAttackController>();
+        string tag = collider2D?.tag;
+        return tag == "Trample Attack";
+    }
+
 }

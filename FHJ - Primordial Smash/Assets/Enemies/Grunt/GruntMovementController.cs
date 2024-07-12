@@ -15,7 +15,7 @@ public class GruntMovementController : MonoBehaviour
     private Rigidbody2D _rigidbody;
     private Animator _animator;
     private bool _inAttackRange = false;
-    public bool IsMoving => !_animator.GetBool("isAttacking") && !_animator.GetBool("isDead");
+    public bool IsMoving => _isKnockedBack || (!_animator.GetBool("isAttacking") && !_animator.GetBool("isDead"));
     public string MidAirLayer = "EnemyMidAir";
     public string EnemyLayer = "Enemy";
     public GameObject DeathSound;
@@ -64,6 +64,23 @@ public class GruntMovementController : MonoBehaviour
         }
     }
 
+    public float KnockbackDuration = 0.25f;
+    private bool _isKnockedBack = false;
+
+    public void Knockback(Vector2 knockbackDirection, ChargeAttackController attack) => StartCoroutine(DoKnockback(knockbackDirection, attack));
+    private IEnumerator DoKnockback(Vector2 direction, ChargeAttackController attack)
+    {
+        _isKnockedBack = true;
+        _animator.SetBool("isStunned", true);
+        _animator.SetBool("isAttacking", false);
+        Direction = direction * attack.Power;
+        yield return new WaitForSeconds(KnockbackDuration);
+        Direction = Vector2.zero;
+        yield return new WaitForSeconds(attack.StunDuration);
+        _animator.SetBool("isStunned", false);
+        _isKnockedBack = false;
+    }
+
     public void AcquireTarget()
     {
         if (Target != null) { return; }
@@ -74,12 +91,14 @@ public class GruntMovementController : MonoBehaviour
     {
         if (Target == null) { return; }
         if (!IsMoving) { return; }
+        if (_isKnockedBack) { return; }
         Direction = (Vector2.MoveTowards(transform.position, Target.transform.position, 1) - (Vector2)transform.position).normalized;
         Body.transform.rotation = Quaternion.FromToRotation(Vector2.up, Direction);
     }
 
     public void StartAttack()
     {
+        if (_isKnockedBack) { return; }
         _inAttackRange = true;
         _animator.SetBool("isAttacking", true);
     }
@@ -91,6 +110,7 @@ public class GruntMovementController : MonoBehaviour
 
     public void CheckAttackRange()
     {
+        if (_isKnockedBack) { _inAttackRange = false; }
         _animator.SetBool("isAttacking", _inAttackRange);
     }
     

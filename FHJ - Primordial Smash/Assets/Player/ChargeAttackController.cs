@@ -16,6 +16,8 @@ public class ChargeAttackController : MonoBehaviour
     public AnimationCurve ChargeSpeed;
     public float ChargeAmount = 0;
     public bool CanCharge => !_isTrampling && _coolDownRemaining <= 0;
+    public float Power = 10;
+    public float StunDuration = 1;
 
     private bool _isTrampling = false;
     [SerializeField]
