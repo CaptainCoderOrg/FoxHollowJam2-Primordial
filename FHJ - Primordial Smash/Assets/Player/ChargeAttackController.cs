@@ -1,8 +1,10 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ChargeAttackController : MonoBehaviour
 {
+    public UnityEvent<float> OnCoolDownChange;
     [SerializeField]
     private PlayerComponents Player;
     [field: SerializeField]
@@ -64,10 +66,14 @@ public class ChargeAttackController : MonoBehaviour
         _isTrampling = false;
         Player.Animator.SetBool("isTrampling", false);
         Player.MovementController.enabled = true;
+        OnCoolDownChange?.Invoke(1);
         while (_coolDownRemaining > 0)
         {
             yield return null;
             _coolDownRemaining -= Time.deltaTime;
+            float percent = Mathf.Clamp(_coolDownRemaining / CoolDownDuration, 0, 1);
+            OnCoolDownChange?.Invoke(percent);
         }
+        OnCoolDownChange?.Invoke(0);
     }
 }
