@@ -102,12 +102,12 @@ public class PlayerComponents : MonoBehaviour
     }
 
     
-    public float CoolDownMultiplier()
+    public float DashCoolDownMultiplier()
     {
         float multiplier = 1;
         foreach (var powerup in PowerUps)
         {
-            multiplier *= powerup.CoolDownMultiplier;
+            multiplier *= powerup.DashCooldownModifier;
         }
         return multiplier;
     }
@@ -118,6 +118,16 @@ public class PlayerComponents : MonoBehaviour
         foreach (var powerup in PowerUps)
         {
             multiplier *= powerup.DamageMultiplier;
+        }
+        return multiplier;
+    }
+
+    public float DashCooldownMultiplier()
+    {
+        float multiplier = 1;
+        foreach (var powerup in PowerUps)
+        {
+            multiplier *= powerup.CoolDownMultiplier;
         }
         return multiplier;
     }

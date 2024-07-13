@@ -50,7 +50,8 @@ public class ChargeAttackController : MonoBehaviour
 
     private IEnumerator Charge(float amount)
     {
-        _coolDownRemaining = CoolDownDuration;
+        float totalCoolDown = CoolDownDuration * Player.DashCoolDownMultiplier();
+        _coolDownRemaining = totalCoolDown;
         ChargeDirection = Player.MovementController.Direction;
         Player.MovementController.enabled = false;
         _isTrampling = true;
@@ -71,7 +72,7 @@ public class ChargeAttackController : MonoBehaviour
         {
             yield return null;
             _coolDownRemaining -= Time.deltaTime;
-            float percent = Mathf.Clamp(_coolDownRemaining / CoolDownDuration, 0, 1);
+            float percent = Mathf.Clamp(_coolDownRemaining / totalCoolDown, 0, 1);
             OnCoolDownChange?.Invoke(percent);
         }
         OnCoolDownChange?.Invoke(0);

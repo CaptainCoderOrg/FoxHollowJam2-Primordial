@@ -12,6 +12,7 @@ public class PowerUpData : ScriptableObject
     public float CoolDownMultiplier = 1;
     public int HealthBonus = 0;
     public float DamageMultiplier = 1;
+    public float DashCooldownModifier = 1f;
     public bool IsSpreadShot = false;
     public bool IsPiercing = false;
     public bool HealAll = false;

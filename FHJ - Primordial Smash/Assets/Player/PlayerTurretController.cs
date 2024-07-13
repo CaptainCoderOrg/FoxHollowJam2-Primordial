@@ -71,7 +71,7 @@ public class PlayerTurretController : MonoBehaviour
         }
         
 
-        StartCoroutine(CoolDownWeapon(Player.Weapon.CoolDown * Player.CoolDownMultiplier()));
+        StartCoroutine(CoolDownWeapon(Player.Weapon.CoolDown * Player.DashCoolDownMultiplier()));
     }
 
     private void CreateProjectile(float angle)
