@@ -15,4 +15,4 @@ MonoBehaviour:
   SpawnPoint: -1
   Enemies:
   - {fileID: 11400000, guid: 95eea0aea042f5442b03c1f9f1c1eb26, type: 2}
-  SpawnDelay: 1
+  SpawnDelay: 0

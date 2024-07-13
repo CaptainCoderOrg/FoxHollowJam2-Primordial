@@ -1424,7 +1424,11 @@ MonoBehaviour:
     analog
 
 
-    radar - Tab / Joystick Y button
+    Dash - Right mouse button / Right Bumper
+
+
+    Radar - Tab / Joystick
+    Y button
 
 
 '
