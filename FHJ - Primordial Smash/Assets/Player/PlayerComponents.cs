@@ -112,6 +112,16 @@ public class PlayerComponents : MonoBehaviour
         return multiplier;
     }
 
+    public float DashPowerMultiplier()
+    {
+        float multiplier = 1;
+        foreach (var powerup in PowerUps)
+        {
+            multiplier *= powerup.DashPowerModifier;
+        }
+        return multiplier;
+    }
+
     public float DamageMultiplier()
     {
         float multiplier = 1;

@@ -43,7 +43,7 @@ public class ChargeAttackController : MonoBehaviour
         if (Input.GetButtonUp("ChargeAttack") && ChargeAmount >= 0.5f)
         {
             
-            StartCoroutine(Charge(ChargeAmount));
+            StartCoroutine(Charge(ChargeAmount * Player.DashPowerMultiplier()));
         }
         Player.Animator.SetBool("isCharging", IsCharging);
     }

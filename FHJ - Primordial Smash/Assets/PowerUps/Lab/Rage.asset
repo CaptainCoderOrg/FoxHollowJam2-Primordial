@@ -19,6 +19,7 @@ MonoBehaviour:
   HealthBonus: 0
   DamageMultiplier: 1
   DashCooldownModifier: 0.8
+  DashPowerModifier: 1.2
   IsSpreadShot: 0
   IsPiercing: 0
   HealAll: 0
